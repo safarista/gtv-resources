@@ -446,7 +446,7 @@ gtv.jq.TemplatePage.prototype.makeVideoControl = function() {
 gtv.jq.TemplatePage.prototype.nextVideo = function(play) {
 	var templatePage = this;
 	
-	templatePage.carrouselControl.selectNext(play);
+	templatePage.carouselControl.selectNext(play);
 }
 
 /**
@@ -456,11 +456,11 @@ gtv.jq.TemplatePage.prototype.nextVideo = function(play) {
 gtv.jq.TemplatePage.prototype.previousVideo = function(play) {
 	var templatePage = this;
 	
-	templatePage.carrouselControl.selectPrevious(play);
+	templatePage.carouselControl.selectPrevious(play);
 }
 
 /**
- * Creates the Carrousel control.
+ * Creates the Carousel control.
  */
 gtv.jq.TemplatePage.prototype.makeSlider = function() {
 	var templatePage = this;
@@ -487,7 +487,7 @@ gtv.jq.TemplatePage.prototype.makeSlider = function() {
 	for (var i=0; i<videos.length; i++) {
 		var video = videos[i];
         
-        var div = $('<div></div>').addClass('carrousel-photo').css('background', 'url(' + video.thumb + ')');
+        var div = $('<div></div>').addClass('carousel-photo').css('background', 'url(' + video.thumb + ')');
         
         var nowPlaying = $('<div></div>').addClass('now-playing-layer').html('Now playing');
              
@@ -504,7 +504,7 @@ gtv.jq.TemplatePage.prototype.makeSlider = function() {
       		choiceCallback(selectedItem);
     	},
     	onSelected: function(selectedItem) {
-    		if (templatePage.carrouselControl.isVisible()) {
+    		if (templatePage.carouselControl.isVisible()) {
     			var videoInfo = selectedItem.data('nav-data');
 				templatePage.showTooltip(videoInfo, selectedItem);
 			}
@@ -517,9 +517,9 @@ gtv.jq.TemplatePage.prototype.makeSlider = function() {
     	}
 	};
 	
-	var carrouselParms = {
+	var carouselParms = {
 		createParams: {
-			containerId: 'carrousel-container',
+			containerId: 'carousel-container',
 			styles: styleClasses,
 			keyController: templatePage.keyController,
 			callbacks: callbacks,
@@ -528,14 +528,14 @@ gtv.jq.TemplatePage.prototype.makeSlider = function() {
 		behaviors: behaviors
 	};
 	
-	templatePage.carrouselControl = new gtv.jq.Carrousel(carrouselParms);
+	templatePage.carouselControl = new gtv.jq.Carousel(carouselParms);
 	
 	var showParams = {
 		topParent: $('#thumbnails'),
 		items: items
 	};
 	
-	templatePage.carrouselControl.showControl(showParams);
+	templatePage.carouselControl.showControl(showParams);
     
     function choiceCallback(selectedItem) {
     	if (!selectedItem)

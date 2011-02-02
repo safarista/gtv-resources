@@ -13,7 +13,7 @@
 // limitations under the License.
 
 /**
- * @fileoverview Classes for Carrousel Control
+ * @fileoverview Classes for Carousel Control
  *
  * @author alevin@google.com (Andres Levin), jatucha@google.com (Jorge Atucha) 
  */
@@ -23,71 +23,71 @@ var gtv = gtv || {
 };
 
 /**
- * CarrouselParams class holds configuration values specific to Carrousel.
+ * CarouselParams class holds configuration values specific to Carousel.
  * @constructor
  */
-gtv.jq.CarrouselParams = function() {
+gtv.jq.CarouselParams = function() {
 };
 
 /**
- * CreateParams for the Carrousel control.
+ * CreateParams for the Carousel control.
  * @type {CreateParams}
  */
-gtv.jq.CarrouselParams.prototype.createParams = null;
+gtv.jq.CarouselParams.prototype.createParams = null;
 
 /**
- * Behaviors for the Carrousel control.
- * @type {CarrouselBehaviors}
+ * Behaviors for the Carousel control.
+ * @type {CarouselBehaviors}
  */
-gtv.jq.CarrouselParams.prototype.behaviors = null;
+gtv.jq.CarouselParams.prototype.behaviors = null;
 
 /**
- * CarrouselBehaviors configures the behaviors for a Carrousel control.
+ * CarouselBehaviors configures the behaviors for a Carousel control.
  * @constructor
  */
-gtv.jq.CarrouselBehaviors = function() {
+gtv.jq.CarouselBehaviors = function() {
 };
 
 /**
- * Tells the Carrousel control if an item should be selected on init.
+ * Tells the Carousel control if an item should be selected on init.
  * @type {boolean}
  */
-gtv.jq.CarrouselBehaviors.prototype.selectOnInit = null;
+gtv.jq.CarouselBehaviors.prototype.selectOnInit = null;
 
 /**
- * Tells the Carrousel control the number of items that will be displayed (visible).
+ * Tells the Carousel control the number of items that will be displayed (visible).
  * @type {number}
  */
-gtv.jq.CarrouselBehaviors.prototype.itemsToDisplay = null;
+gtv.jq.CarouselBehaviors.prototype.itemsToDisplay = null;
 
 /**
- * Tells the Carrousel control if it should do auto-scrolling.
+ * Tells the Carousel control if it should do auto-scrolling.
  * @type {boolean}
  */
-gtv.jq.CarrouselBehaviors.prototype.autoScroll = null;
+gtv.jq.CarouselBehaviors.prototype.autoScroll = null;
 
 /**
- * Tells the Carrousel control the auto-scrolling interval in milliseconds.
+ * Tells the Carousel control the auto-scrolling interval in milliseconds.
  * Valid only if autoScroll behavior is true.
  * @type {number}
  */
-gtv.jq.CarrouselBehaviors.prototype.autoScrollInterval = null;
+gtv.jq.CarouselBehaviors.prototype.autoScrollInterval = null;
 
 /**
- * Carrousel class. Carrousel control is a horizontal scrolling control
+ * Carousel class. Carousel control is a horizontal scrolling control
  * that can manage selection or contain other controls.
- * @param {gtv.jq.CarrouselParams} carrouselParams
+ * @param {gtv.jq.CarouselParams} carouselParams
  * @constructor
  */
-gtv.jq.Carrousel = function(carrouselParams)
+gtv.jq.Carousel = function(carouselParams)
 {
-  this.params_ = jQuery.extend(carrouselParams.createParams, carrouselParams);
+  this.params_ = jQuery.extend(carouselParams.createParams, carouselParams);
 }
 
 /**
  * Removes the control from its container and from the key controller.
  */
-gtv.jq.Carrousel.prototype.deleteControl = function()
+gtv.jq.Carousel.prototype.deleteControl = function()
 {	
   if (!this.container)
     return;
@@ -99,12 +99,12 @@ gtv.jq.Carrousel.prototype.deleteControl = function()
 };
 
 /**
- * Creates a new Carrousel with the specified items and adds it to a
+ * Creates a new Carousel with the specified items and adds it to a
  * container on the page.
  * @param {gtv.jq.ShowParams} controlParams Params for creating the control.
  * @return {boolean} true on success
  */
-gtv.jq.Carrousel.prototype.showControl = function(controlParams) {
+gtv.jq.Carousel.prototype.showControl = function(controlParams) {
   this.params_ = jQuery.extend(this.params_, controlParams);
 
   if (!gtv.jq.CreateParams.validateParams(this.params_))
@@ -124,7 +124,7 @@ gtv.jq.Carrousel.prototype.showControl = function(controlParams) {
 
   this.deleteControl();
     
-  var container = $('<div></div>').attr('id', this.containerId).addClass('carrousel-control');
+  var container = $('<div></div>').attr('id', this.containerId).addClass('carousel-control');
   if (this.styles.container) {
     container.addClass(this.styles.container);
   }
@@ -141,11 +141,11 @@ gtv.jq.Carrousel.prototype.showControl = function(controlParams) {
     var itemTextHolder = null;
         
     if (description) {
-      itemTextHolder = $('<div></div>').addClass('carrousel-item-text-holder ' + this.styles.description);
+      itemTextHolder = $('<div></div>').addClass('carousel-item-text-holder ' + this.styles.description);
       itemTextHolder.append(description);
     }
     
-    var item = $('<div></div>').addClass('carrousel-item ' + this.styles.normal).append(content);
+    var item = $('<div></div>').addClass('carousel-item ' + this.styles.normal).append(content);
 	
 	if (typeof addCallback == 'function') {
 		addCallback(item, navData);
@@ -155,7 +155,7 @@ gtv.jq.Carrousel.prototype.showControl = function(controlParams) {
       item.data("nav-data", navData);
 	}
     
-    var itemDiv = $('<div></div>').addClass('carrousel-item-div ' + this.styles.itemDiv).append(item);
+    var itemDiv = $('<div></div>').addClass('carousel-item-div ' + this.styles.itemDiv).append(item);
                 
     if (description) {
       itemDiv.append(itemTextHolder);
@@ -164,23 +164,23 @@ gtv.jq.Carrousel.prototype.showControl = function(controlParams) {
     this.container.append(itemDiv);
   }
     
-  var carrousel = this;
+  var carousel = this;
     
   var keyMapping = {
     13: function(selectedItem, newItem) {  // enter
-          carrousel.activateItem(selectedItem);
+          carousel.activateItem(selectedItem);
           return { status: 'none' };
     },
     37: function(selectedItem, newItem) {  // left
           if (newItem.length == 0) {
-            newItem = carrousel.container.find('.carrousel-item').last();
+            newItem = carousel.container.find('.carousel-item').last();
             return { status: 'selected', selected: newItem };
           }
           return { status: 'none' };
     },
     39: function(selectedItem, newItem) {  // right
           if (newItem.length == 0) {
-            newItem = carrousel.container.find('.carrousel-item').first();
+            newItem = carousel.container.find('.carousel-item').first();
             return { status: 'selected', selected: newItem };
           }
           return { status: 'none' };
@@ -189,28 +189,28 @@ gtv.jq.Carrousel.prototype.showControl = function(controlParams) {
 
   var actions = {
       scrollIntoView: function(selectedItem, newItem, getFinishCallback) {
-      carrousel.selectItem(selectedItem, newItem, getFinishCallback);
+      carousel.selectItem(selectedItem, newItem, getFinishCallback);
     },
     click: function(selectedItem, newItem) {
-      carrousel.activateItem(selectedItem);
+      carousel.activateItem(selectedItem);
     },
     enterZone: function() {
-      if (typeof carrousel.callbacks.onFocus == 'function') {
-        carrousel.callbacks.onFocus();
+      if (typeof carousel.callbacks.onFocus == 'function') {
+        carousel.callbacks.onFocus();
       }
     },
     leaveZone: function() {
-      if (typeof carrousel.callbacks.onBlur == 'function') {
-        carrousel.callbacks.onBlur();
+      if (typeof carousel.callbacks.onBlur == 'function') {
+        carousel.callbacks.onBlur();
       }
     }
   };
     
   var navSelectors = {
-    item: '.carrousel-item',
-    itemParent: '.carrousel-item-div',
-    itemRow: '.carrousel-control',
-    itemPage: '.carrousel-control'
+    item: '.carousel-item',
+    itemParent: '.carousel-item-div',
+    itemRow: '.carousel-control',
+    itemPage: '.carousel-control'
   };
     
   var selectionClasses = {
@@ -230,17 +230,17 @@ gtv.jq.Carrousel.prototype.showControl = function(controlParams) {
   this.keyController.addBehaviorZone(this.behaviorZone, true, this.layers);
   
   if (this.behaviors.selectOnInit) {
-    this.activateItem(this.container.find('.carrousel-item').first());
+    this.activateItem(this.container.find('.carousel-item').first());
   }
   
   return true;
 };
 
 /**
- * Returns if the Carrousel is visible or not.
- * @return {boolean} true if the Carrousel is visible
+ * Returns if the Carousel is visible or not.
+ * @return {boolean} true if the Carousel is visible
  */
-gtv.jq.Carrousel.prototype.isVisible = function() {
+gtv.jq.Carousel.prototype.isVisible = function() {
   if (this.topParent) {
     return this.topParent.is(':visible');
   }
@@ -250,7 +250,7 @@ gtv.jq.Carrousel.prototype.isVisible = function() {
 /**
  * Call the onBeforeScroll callback in case it's defined.
  */
-gtv.jq.Carrousel.prototype.callOnBeforeScroll = function() {
+gtv.jq.Carousel.prototype.callOnBeforeScroll = function() {
   this.topParent.stop();
     
   if (typeof this.callbacks.onBeforeScroll == 'function') {
@@ -262,7 +262,7 @@ gtv.jq.Carrousel.prototype.callOnBeforeScroll = function() {
  * Switch the selectedItem css classes.
  * @param {jQuery.Element} the item to be selected.
  */
-gtv.jq.Carrousel.prototype.updateSelectionClasses = function(newItem) {
+gtv.jq.Carousel.prototype.updateSelectionClasses = function(newItem) {
 	if (this.selectedItem) {
 		this.selectedItem.removeClass(this.styles.selected);
 	}
@@ -273,7 +273,7 @@ gtv.jq.Carrousel.prototype.updateSelectionClasses = function(newItem) {
  * Sets the item as active, calling the onActivate callback if defined.
  * @param {jQuery.Element} the item to be activated.
  */
-gtv.jq.Carrousel.prototype.activateItem = function(item) {
+gtv.jq.Carousel.prototype.activateItem = function(item) {
   if (!item)
     return;
         
@@ -290,75 +290,75 @@ gtv.jq.Carrousel.prototype.activateItem = function(item) {
 };
 
 /**
- * Selects next Carrousel item.
+ * Selects next Carousel item.
  * @param {boolean} true if the item should be activated after selection.
  */
-gtv.jq.Carrousel.prototype.selectNext = function(activate) {
-  var carrousel = this;
+gtv.jq.Carousel.prototype.selectNext = function(activate) {
+  var carousel = this;
 	
   if (this.selectedItem) {
-    var newItem = this.selectedItem.parent().nextAll('.carrousel-item-div').eq(0).find('.carrousel-item');
+    var newItem = this.selectedItem.parent().nextAll('.carousel-item-div').eq(0).find('.carousel-item');
     if (newItem && newItem.length == 0) {
-      newItem = this.container.find('.carrousel-item').first();
+      newItem = this.container.find('.carousel-item').first();
     }
 	this.selectItem(this.selectedItem, newItem, function() {
-		carrousel.updateSelectionClasses(newItem);
+		carousel.updateSelectionClasses(newItem);
 		if (activate) {
-    		carrousel.activateItem(newItem);
+    		carousel.activateItem(newItem);
     	}
 	});
   }
 };
 
 /**
- * Selects previous Carrousel item.
+ * Selects previous Carousel item.
  * @param {boolean} true if the item should be activated after selection.
  */
-gtv.jq.Carrousel.prototype.selectPrevious = function(activate) {
-  var carrousel = this;
+gtv.jq.Carousel.prototype.selectPrevious = function(activate) {
+  var carousel = this;
 
   if (this.selectedItem) {
-    var newItem = this.selectedItem.parent().prevAll('.carrousel-item-div').eq(0).find('.carrousel-item');
+    var newItem = this.selectedItem.parent().prevAll('.carousel-item-div').eq(0).find('.carousel-item');
     if (newItem && newItem.length == 0) {
-      newItem = this.container.find('.carrousel-item').last();
+      newItem = this.container.find('.carousel-item').last();
     }
     this.selectItem(this.selectedItem, newItem, function() {
-		carrousel.updateSelectionClasses(newItem);
+		carousel.updateSelectionClasses(newItem);
 		if (activate) {
-    		carrousel.activateItem(newItem);
+    		carousel.activateItem(newItem);
     	}
 	});
   }
 };
 
 /**
- * Selects a Carrousel item, scrolling if necesary.
+ * Selects a Carousel item, scrolling if necesary.
  * @param {jQuery.Element} current selected item.
  * @param {jQuery.Element} new selected item.
- * @param {SynchronizedCallback.acquireCallback} callback to be called once the Carrousel
+ * @param {SynchronizedCallback.acquireCallback} callback to be called once the Carousel
  * 		scrolling ends.
  */
-gtv.jq.Carrousel.prototype.selectItem = function(selectedItem, newItem, getFinishCallback) {
+gtv.jq.Carousel.prototype.selectItem = function(selectedItem, newItem, getFinishCallback) {
   if (!newItem)
     return;
 
   if (!selectedItem)
-    selectedItem = this.container.find('.carrousel-item').first();
+    selectedItem = this.container.find('.carousel-item').first();
     
   var selectedIndex = selectedItem.data('index');
   var newIndex = newItem.data('index');
     
-  var carrousel = this;
+  var carousel = this;
     
   var onFinishScroll = function() {
-    if (typeof carrousel.callbacks.onSelected == 'function') {
-      carrousel.callbacks.onSelected(newItem);
+    if (typeof carousel.callbacks.onSelected == 'function') {
+      carousel.callbacks.onSelected(newItem);
     }
     var finishCallback = getFinishCallback();
     if (typeof finishCallback == 'function') {
       finishCallback();
     }
-	carrousel.selectedItem = newItem;
+	carousel.selectedItem = newItem;
   };
     
   if (this.behaviors.itemsToDisplay < this.items.length) { // May need to scroll
