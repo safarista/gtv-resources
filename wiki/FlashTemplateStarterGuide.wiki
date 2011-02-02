@@ -1,0 +1,21 @@
+
+Starter guide to the Flash templates for Google TV
+
+= Introduction =
+
+In this project, there are 2 templates based on Flash available for download. These templates are provided as a starting point for Flash developers who wants to create an optimized site for Google TV. These templates utilize the Google TV UI Library (AS3 version). All the graphics components in the templates are defined in a swf, and content is loaded from XML files. We also provide some controls in the templates, like an scrollable grid, as an example of how to make complex graphic controls. 
+
+== Pre-requisites ==
+You can download the Google TV Flash Library source code and binary from here, and you can access the GTVLib documentation here.
+For the example source code, download our first example here or our second example here. Both examples have the GTVLib included.
+
+As part of your development environment, you will need the [http://www.java.com/en/download/index.jsp latest Java JRE installed], the [http://opensource.adobe.com/wiki/display/flexsdk/Download+Flex+Hero Flex 4.5 SDK (codename “Hero”)], and [http://labs.adobe.com/downloads/flashplayer10.html Flash Player 10.2 Release Candidate] installed too.
+
+We also provided ant build scripts so you can easily build the example applications. You can get Apache Ant here, but it is not mandatory to have it.
+
+For instructions on how to build the sources, please look for the README.txt files inside the packages.
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
