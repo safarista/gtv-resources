@@ -1,2 +1,5 @@
+Website:
+http://tvuidemos.appspot.com/
+
 Description:
-Directory contains source files for App Engine project serving on http://tvuidemos.appspot.com/.  This is a reference implementation website rendering a TV-optimized gallery displaying examples of all UI controls in the GTV Closure library hosted on http://code.google.com/p/gtv-ui-lib/.
+Directory contains source files for an App Engine project at the URL above.  This project is a reference implementation website rendering a TV-optimized gallery displaying examples of all UI controls in the GTV Closure library hosted on http://code.google.com/p/gtv-ui-lib/.
