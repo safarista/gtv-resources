@@ -152,7 +152,7 @@ table {
 	line-height:22px;
 }
 
-.carrousel-photo {
+.carousel-photo {
 	width: 105px;
 	height: 73px;
 	position: relative;
@@ -379,7 +379,7 @@ table {
 	background: url("../images/bt-nextFS-over.png") top left no-repeat;
 }
 
-.carrouselSF {
+.carouselSF {
 	z-index: 100000;
 }
 
