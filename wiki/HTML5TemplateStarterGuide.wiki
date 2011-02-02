@@ -2,10 +2,16 @@ Starter guide to the HTML5 Templates for Google TV
 
 = Introduction =
 
-In this project, you will find 2 templates based on HTML5, JavaScript and CSS3 available for download. The goal of these templates is to provide examples of websites optimized for a 10-foot UI experience. They are also intended to be a starting point for anyone who wants to create a version of their site optimized for Google TV using those technologies.
+In this project, you will find 2 templates based on HTML5, JavaScript and CSS3 available for download. The goal of these templates is to provide examples of websites optimized for a 10-foot UI experience. They are also intended to be a starting point for web developers who want to create a version of their site optimized for Google TV using those technologies.
 
 These templates utilize the [http://code.google.com/p/gtv-ui-lib Google TV JavaScript Library] (JQuery version) that provides a group of controls commonly used in web applications and also handles everything related to key strokes processing (D-Pad navigation buttons, Media keys, etc.). 
 
+Template 1 design is suitable for sites with a lot of video content broken into multiple categories.
+Template 2 design is suitable for sites with less video content.
+
+Here are live URLs of each template for your perusal. 
+*[http:// Template 1]
+*[http:// Template 2]
 
 ==Template Structure==
 Each template has the following file system structure:
