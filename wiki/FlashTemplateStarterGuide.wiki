@@ -2,7 +2,7 @@ Starter guide to the Flash templates for Google TV
 
 = Introduction =
 
-In this project, there are 2 templates based on Flash available for download. These templates are provided as a starting point for Flash developers who wants to create an optimized site for Google TV. These templates utilize the Google TV UI Library (AS3 version). All the graphics components in the templates are defined in a swf, and content is loaded from XML files. We also provide some controls in the templates, like an scrollable grid, as an example of how to make complex graphic controls. 
+In this project, you will find 2 templates based on Flash available for download. These templates are provided as a starting point for Flash developers who wants to create an optimized site for Google TV. These templates utilize the Google TV UI Library (AS3 version). All the graphics components in the templates are defined in a swf, and content is loaded from XML files. We also provide some controls in the templates, like an scrollable grid, as an example of how to make complex graphic controls. 
 
 Template 1 design is suitable for sites with a lot of video content broken into multiple categories.
 Template 2 design is suitable for sites with less video content.
