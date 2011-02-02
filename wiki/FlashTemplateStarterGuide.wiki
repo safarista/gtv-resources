@@ -1,21 +1,68 @@
-
 Starter guide to the Flash templates for Google TV
 
 = Introduction =
 
 In this project, there are 2 templates based on Flash available for download. These templates are provided as a starting point for Flash developers who wants to create an optimized site for Google TV. These templates utilize the Google TV UI Library (AS3 version). All the graphics components in the templates are defined in a swf, and content is loaded from XML files. We also provide some controls in the templates, like an scrollable grid, as an example of how to make complex graphic controls. 
 
-== Pre-requisites ==
-You can download the Google TV Flash Library source code and binary from here, and you can access the GTVLib documentation here.
-For the example source code, download our first example here or our second example here. Both examples have the GTVLib included.
+Template 1 design is suitable for sites with a lot of video content broken into multiple categories.
+Template 2 design is suitable for sites with less video content.
+
+Here are live URLs of each template for your perusal. 
+  *[http:// Template 1]
+  *[http:// Template 2]
+
+== Development Environment Pre-requisites ==
+You can download the Google TV Library source code and binary from [http://code.google.com/p/gtv-ui-lib/downloads/list here], and you can access the library documentation here.
+
+For the template source code, download Template 1 or our Template 2 here. Both templates have the Google TV Lib binary included.
 
 As part of your development environment, you will need the [http://www.java.com/en/download/index.jsp latest Java JRE installed], the [http://opensource.adobe.com/wiki/display/flexsdk/Download+Flex+Hero Flex 4.5 SDK (codename “Hero”)], and [http://labs.adobe.com/downloads/flashplayer10.html Flash Player 10.2 Release Candidate] installed too.
 
-We also provided ant build scripts so you can easily build the example applications. You can get Apache Ant here, but it is not mandatory to have it.
+We also provided ant build scripts so you can easily build the example applications. To use the ant build script, you would need to install [http://ant.apache.org/ Apache Ant].
 
 For instructions on how to build the sources, please look for the README.txt files inside the packages.
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+== How do I use the GTVLib? ==
+
+The most important concepts inside GTVLib are *Navigation Zones* and *Controls*. A navigation zone can contain controls and/or other navigation zones.
+
+An *INavigationObject* is an element that can be placed inside a navigation zone and be reached by the user with the keyboard or mouse.
+The *IControl* interface extends *INavigationObject* and provides the element with a graphical representation (a display object), and allows it to be selected with the keyboard or mouse (hitting enter or clicking).
+
+The *INavigationObjectContainer* is an *INavigationObject* that can contain other *INavigationObjects*.
+You can think of *INavigationObject* as Flash *DisplayObject*, and *INavigationObjectContainer* as Flash *DisplayObjectContainer*.
+
+The *NavigationZone* class is the most basic (and abstract) implementation of *INavigationObjectContainer*.
+It contains all the logic to handle children, but the method _getNextItem()_ needs to be overridden by a sub-class. This method defines how the navigation inside this navigation zone should behave based on the direction key pressed in the Google TV keyboard.
+
+Two basic navigation zones are *SequenceNavigationZone*, that navigates its items based on the order they were added, and *PositionBasedNavigationZone*, that navigates its items based on graphical proximity.
+
+Each of your application's pages and complex controls should either extend or contain a navigation zone.
+
+The *Control* class is a basic implementation of the *IControl* interface. All your navigation elements (buttons, tabs, icons, etc) should extend from this class.
+
+The *InputController* is a singleton class that handles all the user interaction with the application. Its main purpose is to handle the navigation between zones, and keep track of the current active control and zone.
+
+*UserActivityListener* and *ActivityTimer* are helper listeners that will help you detect when the user is either pressing a particular key or moving the mouse, or when the user has gone idle (not interacted after a period of time).
+
+Finally, the *VideoPlayer* class is a player that contains all the logic to play a video given an URL and control its playback. It uses the new *StageVideo* flash component to handle the video rendering.
+
+Take a look at the templates source code for examples on how to use these classes.
+
+== How do I modify the templates? ==
+
+Each template comes with a resource folder that contains a Flash File (.fla) that has all the *Template Art Assets*. If you want to modify any of them just modify the .fla file within the *resource/fla folder*.
+
+Each template .fla file contains everything related with the UI of the templates, grouping each different screen in a movie clip and arranging it per layer.
+
+If you want to modify any specific art you may want to verify the *Movie Clip Instance Names* are the sames as the ones used in the template classes.
+
+Also make sure you are exporting the right symbols in your Flash Library as the ones used within the *Embed labels* in the ActionScript Code.
+
+On the other hand, if you want to modify the template content, each template comes with a configurable set of xml files that you can edit to do so. These content is shown either as a *Category* or a *Playlist* and visually displayed either in a *Menu, Grid or Carousel* within the Template. 
+
+The location for these files is *html-template/xml/demo*.
+
+== Can I use my own library with the template instead of using GTV UI Library? ==
+
+Of course you can; remember that the GTV UI Lib is just a framework to help you “design” your applications for TV, but feel free to use your own framework if you like. Just remember to pay attention [http://code.google.com/tv/web/docs/design_for_tv.html *Designing For TV*] guidelines for an improved user experience result.
