@@ -1,0 +1,54 @@
+Starter guide to the HTML5 Templates for Google TV
+
+= Introduction =
+
+In this project, you will find 2 templates based on HTML5, JavaScript and CSS3 available for download. The goal of these templates is to provide examples of websites optimized for a 10-foot UI experience. They are also intended to be a starting point for anyone who wants to create a version of their site optimized for Google TV using those technologies.
+
+These templates utilize the [http://code.google.com/p/gtv-ui-lib Google TV JavaScript Library] (JQuery version) that provides a group of controls commonly used in web applications and also handles everything related to key strokes processing (D-Pad navigation buttons, Media keys, etc.). 
+
+
+==Template Structure==
+Each template has the following file system structure:
+{{{
+- <root>
+	- <scripts>
+		- javascript files
+	- <styles>
+		- css files
+	- <images>
+		- image files
+        - html files
+}}}
+
+
+==Template components==
+Both templates have the same components:
+
+===Html files===
+Html files define only the page layout as most of the content is drawn in runtime using javascript.
+{{{
+       - Template 1: index.html and fullscreen.html
+       - Template 2: index.html
+}}}
+
+===JavaScript files===
+There is one JavaScript file per HTML file  the dataprovider file.
+{{{       
+       - Template 1: index.js and fullscreen.js
+       - Template 2: index.js
+       - Both templates: dataprovider.js
+}}}
+
+===Pages JavaScripts===
+They define the TemplatePage javascript class which have functions for creating all page controls, keeps a reference for every page control and handle the page events.
+	
+===Data provider file===
+It defines the DataProvider JavaScript class which encapsulates everything related to the way of getting the information to be used in templates (Menu options, thumbnails, videos, etc.).
+
+In the ideal situation this would be the only file to be changed if someone were to use one of the templates for its own application. For example, if you need to get data using AJAX calls, this would be the appropriate place to put those AJAX calls to get information from server.
+       
+===CSS Stylesheet files===
+Both templates have separate style-sheet file called styles.css.
+
+==Deploying the Templates==
+As templates are composed by static files and do not have any server code; the deployment procedure is very easy. Simply copy all files to the web application root keeping the template file system structure.
