@@ -530,9 +530,8 @@ gtv.jq.TemplatePage.prototype.start = function() {
   $(document.body).css('visibility', '');
 
   templatePage.keyController.start(null,
-                                   true,
+                                   false,
                                    gtv.jq.VideoControl.fullScreenLayer);
-  templatePage.sideNavControl.selectControl();
 };
 
 var templatePage = new gtv.jq.TemplatePage();
