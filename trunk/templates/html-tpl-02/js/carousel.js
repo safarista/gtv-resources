@@ -233,6 +233,8 @@ gtv.jq.Carousel.prototype.showControl = function(controlParams) {
 
   if (this.behaviors.selectOnInit) {
     this.activateItem(this.container.find('.carousel-item').first());
+
+    this.keyController.setZone(this.behaviorZone, true);
   }
 
   return true;
