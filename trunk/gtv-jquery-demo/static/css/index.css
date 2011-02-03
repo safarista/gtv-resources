@@ -1,0 +1,633 @@
+.item-row {
+  overflow: hidden;
+}
+.item-div {
+  float: left;
+  margin: 10px;
+  width: 23%;
+  border-radius: 10px;
+}
+.item {
+  background-color: #aaa;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  text-align: center;
+  border-radius: 10px;
+  font-family: 'Droid Sans';
+  font-size: 24pt;
+  text-shadow: 4px 4px 4px #888;
+  cursor: pointer;
+  border: #444 solid 6px;
+}
+.item-hover
+{
+  border: #dd0 solid 6px !important;
+}
+.item-hover-active
+{
+  border: #0b0 solid 6px !important;
+  background-color: #ada !important;
+}
+.item-heading {
+  font-family: 'Droid Sans';
+  font-size: 24pt;
+  color: #ddd;
+  width: 80%;
+  padding: 5px;
+  margin: 5px 5px 20px 5px;
+}
+
+.stack-photo-title {
+  color: white;
+  background-color: #974;
+  padding: 10px;
+  margin: 0px 0px 10px 0px;
+  border: 5px solid #430;
+  font-family: 'Neucha';
+  font-size: 24pt;
+  text-align: center;
+}
+.stack-photo {
+}
+
+.slider-item-page-style {
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+}
+.slider-item-row-style {
+}
+.slider-item-div-style {
+  margin: 5px;
+  padding: 0px;
+}
+.slider-item-style {
+  border: 6px solid transparent;
+  height: 260px;
+  overflow: hidden;
+}
+.slider-photo {
+  width: 400px;
+}
+.slider-text-desc {
+  width: 400px;
+  overflow: hidden;
+}
+
+.slider-text-title {
+  width: 10000px;
+  color: #ddd;
+  font-family: 'Molengo', sans-serif;
+  font-size: 20pt;
+}
+
+
+.scroll-row-style {
+  overflow: hidden;
+  width: 100%;
+  background-color: #8bd;
+  border: 6px solid #999;
+  position: relative;
+}
+.scroll-arrow-style {
+  width: 3%;
+  color: white;
+  font-size: 24pt;
+  margin: 0px;
+  padding: 0px;
+}
+.scroll-div-style {
+  margin: 5px;
+}
+.scroll-items-div-style {
+}
+.scroll-item-style {
+  background-color: #58b;
+  border-radius: 10px;
+  color: #ddd;
+  padding: 10px;
+  font-family: 'Philosopher';
+  font-size: 20pt;
+  border: #58b solid 6px;
+}
+
+@font-face
+{
+  font-family: Bonzai;
+  src: url("/static/fonts/bonzai.ttf");
+}
+
+.font-item {
+  color: #66f;
+  font-size: 80pt;
+  text-shadow: 6px 6px 8px #116;
+}
+
+.font-page-font-face {
+  font-family: 'Bonzai', sans-serif;
+}
+.font-page-reenie {
+  font-family: 'Reenie Beanie', sans-serif;
+}
+.font-page-droidsans {
+  font-family: 'Droid Sans', sans-serif;
+}
+.font-page-molengo {
+  font-family: 'Molengo', sans-serif;
+}
+.font-page-philosopher {
+  font-family: 'Philosopher', sans-serif;
+}
+.font-page-lobster {
+  font-family: 'Lobster', sans-serif;
+}
+.font-page-neucha {
+  font-family: 'Neucha', sans-serif;
+}
+
+.font-demo-div-container {
+  overflow: hidden;
+  width: 99%;
+  border: 10px solid #ddd;
+  border-radius: 5px;
+  background-color: #555;
+}
+
+.font-demo-div {
+  width: 10000px;
+  padding: 1%;
+}
+
+.font-demo-item {
+  margin: .05% 0px;
+  padding: 0px;
+  color: #eee;
+}
+
+.font-item {
+  margin: 0px;
+  text-align: center;
+}
+
+.hints-cover-style {
+  opacity: 0.75;
+  background-color: #000;
+}
+
+.hints-style {
+  border-radius: 20px;
+  opacity: 0.90;
+  background-color: #999;
+}
+
+.hints-title-style {
+  font-family: 'Neucha', sans-serif;
+  font-size: 36pt;
+  color: white;
+  text-align: center;
+  margin: 0px 0px 10px 0px;
+}
+
+.hints-img-style {
+  vertical-align: middle;
+  margin: 20px;
+}
+
+.hints-text-style {
+  font-family: 'Neucha', sans-serif;
+  font-size: 24pt;
+  color: white;
+  margin: 20px;
+  padding: 0px;
+}
+
+.insight-selected {
+  border-color: #0e0 !important;
+}
+
+.insight-button-style {
+  background-color: #66D;
+  border: 6px solid white;
+  font-family: 'Molengo', sans-serif;
+  font-size: 48pt;
+  text-align: center;
+  padding: 0px 30px 0px 30px;
+  border-radius: 1000px;
+  color: white;
+}
+
+.insight-description-style {
+  background-color: #55c;
+  font-family: 'Nobile', sans-serif;
+  font-size: 20pt;
+  color: white;
+  border: 6px solid white;
+  border-radius: 20px;
+}
+
+.insight-cover-style {
+  opacity: 0.75;
+  background-color: #000;
+}
+
+.sidenav-row-style {
+}
+
+.sidenav-item-style {
+  text-align: center;
+  font-family: 'Droid Sans';
+  font-size: 36pt;
+  border-radius: 15px;
+  border: transparent solid 4px;
+  margin: 5px;
+  padding: 20px;
+  width: 200px;
+}
+
+.sidenav-item-chosen {
+  border: #ff0 solid 4px;
+  background: -webkit-gradient(linear,
+			       left top,
+			       right bottom,
+			       color-stop(0, #cc0),
+			       color-stop(.5, #660),
+			       color-stop(1, #cc0));
+}
+
+.sidenav-item-normal {
+  border: #444 solid 4px;
+  background: -webkit-gradient(linear,
+			       left top,
+			       right bottom,
+			       color-stop(0, #ccc),
+			       color-stop(.5, #666),
+			       color-stop(1, #ccc));
+}
+
+.sidenav-item-hover
+{
+  border: #dd0 solid 4px !important;
+}
+
+.sidenav-holder {
+  float: left;
+}
+
+.slider-holder {
+  float: left;
+  width: 80%;
+  overflow: auto;
+}
+
+
+.topnav-row-style {
+}
+
+.topnav-item-style {
+  text-align: center;
+  font-family: 'Droid Sans', sans-serif;
+  font-size: 24pt;
+  border-radius: 10px;
+  border: transparent solid 3px;
+  margin: 5px;
+  padding: 20px;
+}
+
+.topnav-item-chosen {
+  color: white;
+  border: #0dd solid 3px;
+  background: -webkit-gradient(linear,
+			       left top,
+			       right bottom,
+			       color-stop(0, #04d),
+			       color-stop(.5, #016),
+			       color-stop(1, #04d));
+}
+
+.topnav-item-normal {
+  color: white;
+  border: #444 solid 3px;
+  background: -webkit-gradient(linear,
+			       left top,
+			       right bottom,
+			       color-stop(0, #ccc),
+			       color-stop(.5, #666),
+			       color-stop(1, #ccc));
+}
+
+.topnav-item-hover
+{
+  border: #dd0 solid 3px !important;
+}
+
+.topnav-holder {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+
+.scrollnav-row-style {
+}
+
+.scrollnav-item-div-style {
+  overflow: hidden;
+}
+
+.scrollnav-item-style {
+  margin: 0px;
+  padding: 0px;
+}
+
+.scrollnav-item-chosen {
+}
+
+.scrollnav-item-normal {
+}
+
+.scrollnav-holder {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.scrollnav-row-holder {
+  position: relative;
+}
+
+.scrolling-page {
+  position: absolute;
+  width: 95%;
+}
+
+
+
+.scrollnav-sidenav-item-style {
+  text-align: center;
+  font-family: 'Droid Sans';
+  font-size: 36pt;
+  border: transparent solid 2px;
+  margin: 10px;
+  width: 300px;
+  padding: 20px;
+}
+
+.scrollnav-sidenav-item-normal {
+  border: #444 solid 2px;
+  background-color: #aaa;
+}
+
+.scrollnav-sidenav-item-hover
+{
+  -webkit-box-shadow: 0 0 10px 5px #dd0;
+}
+
+.scrollnav-nav-item-hover
+{
+  opacity: .6;
+}
+
+.scrollnav-nav-row-style {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+.scrollnav-nav-div-style {
+  float: left;
+  margin: 0;
+  background-color: #cc0;
+}
+.scrollnav-nav-items-div-style {
+}
+.scrollnav-nav-item-style {
+  margin: 0;
+}
+
+.scrollnav-show-item
+{
+  position: relative;
+  -webkit-box-shadow: 25px 25px 10px 5px #222;
+  height: 50%;
+
+}
+
+.scrollnav-show-div
+{
+  float:left;
+  margin-left: 50px;
+}
+
+.player-item-div
+{
+  float: left;
+}
+
+.player-item-style
+{
+  text-align: center;
+  font-family: 'Droid Sans';
+  font-size: 24pt;
+  color: white;
+  border: #444 solid 3px;
+  background: -webkit-gradient(linear,
+			       left top,
+			       right bottom,
+			       color-stop(0, #ccc),
+			       color-stop(.5, #666),
+			       color-stop(1, #ccc));
+}
+
+.player-item-hover
+{
+  border: #dd0 solid 3px;
+}
+
+.builder-cover-div {
+  opacity: 0.75;
+  background-color: #000;
+  position: absolute;
+  z-index: 5000000;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.builder-div {
+  background-color: #555;
+  border-radius: 20px;
+  z-index: 5000001;
+  position: absolute;
+  padding: 10px;
+  width: 95%;
+  color: #ddd;
+}
+
+.builder-div input[type=text] {
+  margin: 10px 20px 10px 20px;
+  font-family: 'Droid Sans';
+  font-size: 20pt;
+  border: 3px solid transparent;
+  clear: both;
+}
+
+.seeker-div p {
+  margin: 10px 20px 10px 20px;
+  font-family: 'Droid Sans';
+  font-size: 20pt;
+  border: 3px solid transparent;
+  float: left;
+  width: 27%;
+}
+
+.seeker-div {
+  float:left;
+  width: 50%;
+}
+
+.builder-div button {
+  display: block;
+  margin: 10px 20px 10px 20px;
+  font-family: 'Droid Sans';
+  font-size: 20pt;
+  border: 3px solid transparent;
+}
+
+.builder-div select {
+  display: block;
+  margin: 10px 20px 10px 20px;
+  font-family: 'Droid Sans';
+  font-size: 20pt;
+  border: 3px solid transparent;
+}
+
+.builder-feed-display {
+  background-color: #888;
+  padding: 20px;
+  border: 8px solid #04d;
+  float: left;
+  width: 40%;
+  min-height: 400px;
+}
+
+.builder-feed-display p {
+  font-family: 'Droid Sans';
+  font-size: 20pt;
+  margin: 0px;
+  padding: 0px;
+}
+
+.builder-feed-display a {
+  border: 3px solid transparent;
+}
+
+.builder-item-hover {
+  border: #dd0 solid 3px !important;
+}
+
+.builder-row {
+  overflow: auto;
+}
+
+.builder-item-div {
+  width: 100%;
+}
+
+.builder-row-active {
+  background-color: #04d;
+}
+
+.player-row {
+  position: absolute;
+}
+
+.builder-code-cover-div {
+  opacity: 0.75;
+  background-color: #000;
+  position: absolute;
+  z-index: 5000002;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.builder-code-div {
+  background-color: #555;
+  border-radius: 20px;
+  z-index: 5000003;
+  position: absolute;
+  padding: 10px;
+}
+
+.video-container {
+  position: absolute;
+}
+
+.photo-container {
+  position: absolute;
+}
+
+.video-player-container {
+  position: absolute;
+}
+
+
+.rollnav-row-style {
+}
+
+.rollnav-item-style {
+  text-align: center;
+  font-family: 'Droid Sans', sans-serif;
+  font-size: 20pt;
+  border-radius: 2px;
+  border: transparent solid 2px;
+  margin: 2px;
+  padding: 4px;
+}
+
+.rollnav-item-chosen {
+  color: white;
+  border: #0dd solid 2px;
+  background: -webkit-gradient(linear,
+			       left top,
+			       right bottom,
+			       color-stop(0, #04d),
+			       color-stop(.5, #016),
+			       color-stop(1, #04d));
+}
+
+.rollnav-item-normal {
+  color: white;
+  border: #444 solid 2px;
+  background: -webkit-gradient(linear,
+			       left top,
+			       right bottom,
+			       color-stop(0, #ccc),
+			       color-stop(.5, #666),
+			       color-stop(1, #ccc));
+}
+
+.rollnav-item-hover
+{
+  border: #dd0 solid 2px !important;
+}
+
+
+.pong-paddle {
+  position: absolute;
+  width: 25px;
+  height: 150px;
+  border: 2px solid #eee;
+  border-radius: 5px;
+  background: -webkit-gradient(linear,
+			       left top,
+			       right bottom,
+			       color-stop(0, #ccc),
+			       color-stop(.5, #666),
+			       color-stop(1, #ccc));
+}
