@@ -10,8 +10,8 @@ Template 1 design is suitable for sites with a lot of video content broken into 
 Template 2 design is suitable for sites with less video content.
 
 Here are live URLs of each template for your perusal. 
-  *[http:// Template 1]
-  *[http:// Template 2]
+  *[http://gtv-resources.googlecode.com/svn/trunk/templates/html-tpl-01/index.html Template 1]
+  *[http://gtv-resources.googlecode.com/svn/trunk/templates/html-tpl-02/index.html Template 2]
 
 ==Template Structure==
 Each template has the following file system structure:
