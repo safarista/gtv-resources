@@ -15,7 +15,7 @@
 /**
  * @fileoverview Classes for Carousel Control
  *
- * @author alevin@google.com (Andres Levin), jatucha@google.com (Jorge Atucha) 
+ * @author alevin@google.com (Andres Levin), jatucha@google.com (Jorge Atucha)
  */
 
 var gtv = gtv || {
@@ -79,19 +79,18 @@ gtv.jq.CarouselBehaviors.prototype.autoScrollInterval = null;
  * @param {gtv.jq.CarouselParams} carouselParams
  * @constructor
  */
-gtv.jq.Carousel = function(carouselParams)
-{
+gtv.jq.Carousel = function(carouselParams) {
   this.params_ = jQuery.extend(carouselParams.createParams, carouselParams);
-}
+};
 
 /**
  * Removes the control from its container and from the key controller.
  */
-gtv.jq.Carousel.prototype.deleteControl = function()
-{	
-  if (!this.container)
+gtv.jq.Carousel.prototype.deleteControl = function() {
+  if (!this.container) {
     return;
-        
+  }
+
   this.keyController.removeBehaviorZone(this.behaviorZone);
 
   this.container.remove();
@@ -107,9 +106,6 @@ gtv.jq.Carousel.prototype.deleteControl = function()
 gtv.jq.Carousel.prototype.showControl = function(controlParams) {
   this.params_ = jQuery.extend(this.params_, controlParams);
 
-  if (!gtv.jq.CreateParams.validateParams(this.params_))
-    return false;
-	
   this.topParent = this.params_.topParent;
   this.containerId = this.params_.containerId;
   this.parentSelector = '#' + this.topParent.attr('id');
@@ -119,12 +115,14 @@ gtv.jq.Carousel.prototype.showControl = function(controlParams) {
   this.keyController = this.params_.keyController;
   this.callbacks = this.params_.callbacks || {};
   this.layers = this.params_.layerNames || ['default'];
-  
+
   var items = this.items;
 
   this.deleteControl();
-    
-  var container = $('<div></div>').attr('id', this.containerId).addClass('carousel-control');
+
+  var container = $('<div></div>')
+      .attr('id', this.containerId)
+      .addClass('carousel-control');
   if (this.styles.container) {
     container.addClass(this.styles.container);
   }
@@ -136,59 +134,63 @@ gtv.jq.Carousel.prototype.showControl = function(controlParams) {
     var content = items[i].content;
     var description = items[i].description;
     var navData = items[i].data;
-	var addCallback = items[i].addCallback;
-    
+    var addCallback = items[i].addCallback;
+
     var itemTextHolder = null;
-        
+
     if (description) {
-      itemTextHolder = $('<div></div>').addClass('carousel-item-text-holder ' + this.styles.description);
+      itemTextHolder = $('<div></div>')
+          .addClass('carousel-item-text-holder ' + this.styles.description);
       itemTextHolder.append(description);
     }
-    
-    var item = $('<div></div>').addClass('carousel-item ' + this.styles.normal).append(content);
-	
-	if (typeof addCallback == 'function') {
-		addCallback(item, navData);
-	}
-    
+
+    var item = $('<div></div>')
+        .addClass('carousel-item ' + this.styles.normal).append(content);
+
+    if (typeof addCallback == 'function') {
+      addCallback(item, navData);
+    }
+
     if (navData) {
       item.data("nav-data", navData);
-	}
-    
-    var itemDiv = $('<div></div>').addClass('carousel-item-div ' + this.styles.itemDiv).append(item);
-                
+    }
+
+    var itemDiv = $('<div></div>')
+        .addClass('carousel-item-div ' + this.styles.itemDiv)
+        .append(item);
+
     if (description) {
       itemDiv.append(itemTextHolder);
     }
-        
+
     this.container.append(itemDiv);
   }
-    
+
   var carousel = this;
-    
+
   var keyMapping = {
     13: function(selectedItem, newItem) {  // enter
-          carousel.activateItem(selectedItem);
-          return { status: 'none' };
+      carousel.activateItem(selectedItem);
+      return { status: 'none' };
     },
     37: function(selectedItem, newItem) {  // left
-          if (newItem.length == 0) {
-            newItem = carousel.container.find('.carousel-item').last();
-            return { status: 'selected', selected: newItem };
-          }
-          return { status: 'none' };
+      if (newItem.length == 0) {
+        newItem = carousel.container.find('.carousel-item').last();
+        return { status: 'selected', selected: newItem };
+      }
+      return { status: 'none' };
     },
     39: function(selectedItem, newItem) {  // right
-          if (newItem.length == 0) {
-            newItem = carousel.container.find('.carousel-item').first();
-            return { status: 'selected', selected: newItem };
-          }
-          return { status: 'none' };
+      if (newItem.length == 0) {
+        newItem = carousel.container.find('.carousel-item').first();
+        return { status: 'selected', selected: newItem };
+      }
+      return { status: 'none' };
     }
   };
 
   var actions = {
-      scrollIntoView: function(selectedItem, newItem, getFinishCallback) {
+    scrollIntoView: function(selectedItem, newItem, getFinishCallback) {
       carousel.selectItem(selectedItem, newItem, getFinishCallback);
     },
     click: function(selectedItem, newItem) {
@@ -205,34 +207,34 @@ gtv.jq.Carousel.prototype.showControl = function(controlParams) {
       }
     }
   };
-    
+
   var navSelectors = {
     item: '.carousel-item',
     itemParent: '.carousel-item-div',
     itemRow: '.carousel-control',
     itemPage: '.carousel-control'
   };
-    
+
   var selectionClasses = {
     basic: this.styles.selected
   };
-  
+
   var zoneParms = {
-		containerSelector: this.parentSelector,
-		keyMapping: keyMapping,
-		actions: actions,
-		navSelectors: navSelectors,
-		selectionClasses: selectionClasses,
-		navigableData: 'nav-data'
+    containerSelector: this.parentSelector,
+    keyMapping: keyMapping,
+    actions: actions,
+    navSelectors: navSelectors,
+    selectionClasses: selectionClasses,
+    navigableData: 'nav-data'
   };
 
   this.behaviorZone = new gtv.jq.KeyBehaviorZone(zoneParms);
   this.keyController.addBehaviorZone(this.behaviorZone, true, this.layers);
-  
+
   if (this.behaviors.selectOnInit) {
     this.activateItem(this.container.find('.carousel-item').first());
   }
-  
+
   return true;
 };
 
@@ -252,7 +254,7 @@ gtv.jq.Carousel.prototype.isVisible = function() {
  */
 gtv.jq.Carousel.prototype.callOnBeforeScroll = function() {
   this.topParent.stop();
-    
+
   if (typeof this.callbacks.onBeforeScroll == 'function') {
     this.callbacks.onBeforeScroll();
   }
@@ -263,10 +265,10 @@ gtv.jq.Carousel.prototype.callOnBeforeScroll = function() {
  * @param {jQuery.Element} the item to be selected.
  */
 gtv.jq.Carousel.prototype.updateSelectionClasses = function(newItem) {
-	if (this.selectedItem) {
-		this.selectedItem.removeClass(this.styles.selected);
-	}
-	newItem.addClass(this.styles.selected);
+  if (this.selectedItem) {
+    this.selectedItem.removeClass(this.styles.selected);
+  }
+  newItem.addClass(this.styles.selected);
 };
 
 /**
@@ -274,16 +276,17 @@ gtv.jq.Carousel.prototype.updateSelectionClasses = function(newItem) {
  * @param {jQuery.Element} the item to be activated.
  */
 gtv.jq.Carousel.prototype.activateItem = function(item) {
-  if (!item)
+  if (!item) {
     return;
-        
+  }
+
   if (this.activeItem) {
     this.activeItem.removeClass(this.styles.chosen);
   }
 
   if (typeof this.callbacks.onActivated == 'function') {
     this.callbacks.onActivated(item);
-	this.selectedItem = item;
+    this.selectedItem = item;
     this.activeItem = item;
     this.activeItem.addClass(this.styles.chosen);
   }
@@ -295,18 +298,22 @@ gtv.jq.Carousel.prototype.activateItem = function(item) {
  */
 gtv.jq.Carousel.prototype.selectNext = function(activate) {
   var carousel = this;
-	
+
   if (this.selectedItem) {
-    var newItem = this.selectedItem.parent().nextAll('.carousel-item-div').eq(0).find('.carousel-item');
+    var newItem = this.selectedItem
+        .parent()
+        .nextAll('.carousel-item-div')
+        .eq(0)
+        .find('.carousel-item');
     if (newItem && newItem.length == 0) {
       newItem = this.container.find('.carousel-item').first();
     }
-	this.selectItem(this.selectedItem, newItem, function() {
-		carousel.updateSelectionClasses(newItem);
-		if (activate) {
-    		carousel.activateItem(newItem);
-    	}
-	});
+    this.selectItem(this.selectedItem, newItem, function() {
+      carousel.updateSelectionClasses(newItem);
+      if (activate) {
+        carousel.activateItem(newItem);
+      }
+    });
   }
 };
 
@@ -318,16 +325,20 @@ gtv.jq.Carousel.prototype.selectPrevious = function(activate) {
   var carousel = this;
 
   if (this.selectedItem) {
-    var newItem = this.selectedItem.parent().prevAll('.carousel-item-div').eq(0).find('.carousel-item');
+    var newItem = this.selectedItem
+        .parent()
+        .prevAll('.carousel-item-div')
+        .eq(0)
+        .find('.carousel-item');
     if (newItem && newItem.length == 0) {
       newItem = this.container.find('.carousel-item').last();
     }
     this.selectItem(this.selectedItem, newItem, function() {
-		carousel.updateSelectionClasses(newItem);
-		if (activate) {
-    		carousel.activateItem(newItem);
-    	}
-	});
+      carousel.updateSelectionClasses(newItem);
+      if (activate) {
+        carousel.activateItem(newItem);
+      }
+    });
   }
 };
 
@@ -336,20 +347,24 @@ gtv.jq.Carousel.prototype.selectPrevious = function(activate) {
  * @param {jQuery.Element} current selected item.
  * @param {jQuery.Element} new selected item.
  * @param {SynchronizedCallback.acquireCallback} callback to be called once the Carousel
- * 		scrolling ends.
+ *     scrolling ends.
  */
-gtv.jq.Carousel.prototype.selectItem = function(selectedItem, newItem, getFinishCallback) {
-  if (!newItem)
+gtv.jq.Carousel.prototype.selectItem = function(selectedItem,
+                                                newItem,
+                                                getFinishCallback) {
+  if (!newItem) {
     return;
+  }
 
-  if (!selectedItem)
+  if (!selectedItem) {
     selectedItem = this.container.find('.carousel-item').first();
-    
+  }
+
   var selectedIndex = selectedItem.data('index');
   var newIndex = newItem.data('index');
-    
+
   var carousel = this;
-    
+
   var onFinishScroll = function() {
     if (typeof carousel.callbacks.onSelected == 'function') {
       carousel.callbacks.onSelected(newItem);
@@ -358,23 +373,41 @@ gtv.jq.Carousel.prototype.selectItem = function(selectedItem, newItem, getFinish
     if (typeof finishCallback == 'function') {
       finishCallback();
     }
-	carousel.selectedItem = newItem;
+    carousel.selectedItem = newItem;
   };
-    
-  if (this.behaviors.itemsToDisplay < this.items.length) { // May need to scroll
+
+  // May need to scroll
+  if (this.behaviors.itemsToDisplay < this.items.length) {
     if (newIndex == 0) { // Scrolling to first
       this.callOnBeforeScroll();
       this.topParent.animate({ scrollLeft: 0 }, onFinishScroll);
-    }
-    else {
-      var newItemLeft = newItem.position().left - parseInt(newItem.parent().css("padding-left")) - parseInt(newItem.parent().css("margin-left"));
-      var newItemRight = newItem.position().left + newItem.width() + parseInt(newItem.parent().css("padding-right")) + parseInt(newItem.parent().css("margin-right"));
-      var parentLeft = this.topParent.position().left + parseInt(this.topParent.css("margin-left").replace("px", "")) + parseInt(this.topParent.css("padding-left").replace("px", ""));
-      var parentRight = parentLeft + this.topParent.width() - parseInt(this.topParent.css("margin-right").replace("px", "")) - parseInt(this.topParent.css("padding-right").replace("px", ""));
-      if (newItemLeft < parentLeft || newItemRight > parentRight) { // Need to scroll left or right
+    } else {
+      var newItemLeft = newItem.position().left
+          - parseInt(newItem.parent().css("padding-left"))
+              - parseInt(newItem.parent().css("margin-left"));
+
+      var newItemRight = newItem.position().left + newItem.width()
+          + parseInt(newItem.parent().css("padding-right"))
+              + parseInt(newItem.parent().css("margin-right"));
+
+      var parentLeft = this.topParent.position().left
+          + parseInt(this.topParent.css("margin-left").replace("px", ""))
+              + parseInt(this.topParent.css("padding-left").replace("px", ""));
+
+      var parentRight = parentLeft
+          + this.topParent.width()
+              - parseInt(this.topParent.css("margin-right").replace("px", ""))
+                  - parseInt(
+                      this.topParent.css("padding-right").replace("px", ""));
+      if (newItemLeft < parentLeft ||
+          newItemRight > parentRight) { // Need to scroll left or right
         this.callOnBeforeScroll();
-        var scrollDelta = newIndex > selectedIndex ? (newItemRight - parentRight) : (newItemLeft - parentLeft);
-        this.topParent.animate({ scrollLeft: this.topParent.scrollLeft() + scrollDelta }, onFinishScroll);
+        var scrollDelta = newIndex > selectedIndex ?
+            (newItemRight - parentRight) : (newItemLeft - parentLeft);
+
+        this.topParent.animate({
+            scrollLeft: this.topParent.scrollLeft() + scrollDelta
+          }, onFinishScroll);
       }
       else { // No need to scroll
         onFinishScroll();

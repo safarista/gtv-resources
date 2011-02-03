@@ -15,7 +15,7 @@
 /**
  * @fileoverview Classes for Grid Control
  *
- * @author alevin@google.com (Andres Levin), jatucha@google.com (Jorge Atucha) 
+ * @author alevin@google.com (Andres Levin), jatucha@google.com (Jorge Atucha)
  */
 
 var gtv = gtv || {
@@ -68,7 +68,7 @@ gtv.jq.GridControlBehaviors.prototype.rowsPerPage = null;
  */
 gtv.jq.GridControl = function(gridControlParams)
 {
-	this.params_ = jQuery.extend(gridControlParams.createParams, gridControlParams);
+  this.params_ = jQuery.extend(gridControlParams.createParams, gridControlParams);
 }
 
 /**
@@ -77,7 +77,7 @@ gtv.jq.GridControl = function(gridControlParams)
 gtv.jq.GridControl.prototype.deleteControl = function()
 {
   if (!this.container)
-  	return;
+    return;
 
   this.keyController.removeBehaviorZone(this.behaviorZone);
   this.container.remove();
@@ -93,24 +93,24 @@ gtv.jq.GridControl.prototype.deleteControl = function()
 gtv.jq.GridControl.prototype.showControl = function(controlParams)
 {
   this.params_ = jQuery.extend(this.params_, controlParams);
-  
-  if (!gtv.jq.CreateParams.validateParams(this.params_))
+
+  if (!this.params_.containerId)
     return false;
-	
+
   var pageItems = this.params_.items;
-	
+
   if (!pageItems || pageItems.length == 0)
     return false;
 
   var gridControl = this;
-  
+
   gridControl.topParent = this.params_.topParent;
   gridControl.styles = this.params_.styles || {};
   gridControl.keyController = this.params_.keyController;
   gridControl.behaviors = this.params_.behaviors || {};
-  
+
   gridControl.choiceCallback = this.params_.choiceCallback;
-  
+
   gridControl.containerId = this.params_.containerId;
 
   var container = $('<div></div>')
@@ -129,8 +129,10 @@ gtv.jq.GridControl.prototype.showControl = function(controlParams)
   var itemCount = pageItems.length;
   var rowCount = 0;
   var itemRow;
-  var itemsPerRow = gridControl.behaviors.itemsPerRow || 1;  // start at 1, will be calculated after first item
-  var rowsPerPage = gridControl.behaviors.rowsPerPage || 1;  // start at 1, will be calculated after first item
+  // start at 1, will be calculated after first item
+  var itemsPerRow = gridControl.behaviors.itemsPerRow || 1;
+  // start at 1, will be calculated after first item
+  var rowsPerPage = gridControl.behaviors.rowsPerPage || 1;
 
   var firstPage;
   var page;
@@ -143,7 +145,7 @@ gtv.jq.GridControl.prototype.showControl = function(controlParams)
         page = $('<div></div>').addClass('grid-item-page ' +
                                          gridControl.styles.page);
 
-		page.data('page', pageCount);
+  	page.data('page', pageCount);
 
         container.append(page);
         pageCount++;
@@ -194,18 +196,22 @@ gtv.jq.GridControl.prototype.showControl = function(controlParams)
 
       var newItemRowHeight = newItemRow.outerHeight();
 
-	  if (!gridControl.behaviors.itemsPerRow)
+      if (!gridControl.behaviors.itemsPerRow) {
       	itemsPerRow = Math.max(1, Math.floor(windowWidth / newItemDivWidth));
-      if (!gridControl.behaviors.rowsPerPage)
+      }
+
+      if (!gridControl.behaviors.rowsPerPage) {
       	rowsPerPage = Math.max(1, Math.floor(windowHeight / newItemRowHeight));
+      }
     }
   }
 
 
   var keyMapping = {
     13: function(selectedItem, newItem) {  // enter
-      if (gridControl.choiceCallback)
+      if (gridControl.choiceCallback) {
         gridControl.choiceCallback(selectedItem);
+      }
       return { status: 'none' };
     }
   };
@@ -227,18 +233,19 @@ gtv.jq.GridControl.prototype.showControl = function(controlParams)
       gridControl.showPage(selectedItem, newItem, getFinishCallback);
     },
     click: function(selectedItem, newItem) {
-      if (gridControl.choiceCallback)
+      if (gridControl.choiceCallback) {
         gridControl.choiceCallback(selectedItem);
+      }
     }
   };
-  
+
   var zoneParms = {
-		containerSelector: '#' + gridControl.containerId,
-		keyMapping: keyMapping,
-		actions: actions,
-		navSelectors: navSelectors,
-		selectionClasses: selectionClasses,
-		navigableData: 'nav-data'
+    containerSelector: '#' + gridControl.containerId,
+    keyMapping: keyMapping,
+    actions: actions,
+    navSelectors: navSelectors,
+    selectionClasses: selectionClasses,
+    navigableData: 'nav-data'
   };
 
   gridControl.behaviorZone = new gtv.jq.KeyBehaviorZone(zoneParms);
@@ -259,20 +266,35 @@ gtv.jq.GridControl.prototype.showPage = function(selectedItem,
                                              newItem,
                                              getFinishCallback)
 {
-	if (!newItem)
-		return;
+  if (!newItem) {
+    return;
+  }
 
-	if (!selectedItem)
-		selectedItem = this.container.find('.grid-item').first();
+  if (!selectedItem)
+    selectedItem = this.container.find('.grid-item').first();
 
-  	var divPos = this.topParent.position();
-	var divDim = { width:this.topParent.width(), height:this.topParent.height() };
-	var liPos = newItem.parent().position();
-	var liDim = { width:newItem.parent().width(), height:newItem.parent().height() };
-	if ((liPos.top - divPos.top - this.topParent.scrollTop() + liDim.height) > divDim.height) {
-		this.topParent.animate({scrollTop:this.topParent.scrollTop() + liDim.height}, getFinishCallback());
-	}
-	else if (liPos.top - divPos.top - this.topParent.scrollTop() < 0) {
-		this.topParent.animate({scrollTop:this.topParent.scrollTop() - liDim.height}, getFinishCallback());
-	}
+  var divPos = this.topParent.position();
+  var divDim = {
+    width: this.topParent.width(),
+    height: this.topParent.height()
+  };
+  var liPos = newItem.parent().position();
+  var liDim = {
+    width:newItem.parent().width(),
+    height:newItem.parent().height()
+  };
+
+  if ((liPos.top - divPos.top - this.topParent.scrollTop() + liDim.height) >
+      divDim.height) {
+    this.topParent.animate({
+        scrollTop:this.topParent.scrollTop() + liDim.height
+      },
+      getFinishCallback());
+  }
+  else if (liPos.top - divPos.top - this.topParent.scrollTop() < 0) {
+    this.topParent.animate({
+        scrollTop:this.topParent.scrollTop() - liDim.height
+      },
+      getFinishCallback());
+  }
 };
