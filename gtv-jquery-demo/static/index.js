@@ -148,29 +148,148 @@ Main.setKeyHandlerForPage = function(topParent,
 Main.showInsights = function(topParent, category, finishCallback) {
   var main = this;
 
-  $.getJSON(
-    '/bestpractices/ajax/' + category,
-    function(insightData) {
-      var descriptionParams = {
-        size: {
-          width: 400,
-          height: 350
-        },
-        style: 'insight-description-style'
-      };
+  var insightCategoryData = {
+    'stackpage': [
+      {
+        'selector': '.stack-item:first',
+        'text': 'Items not selected are stored to the left and right of the selected item to give a visual, directional cue for d-pad navigation.'
+      },
+      {
+        'selector': '.stack-item:eq(11)',
+        'position': 'center',
+        'text': 'The selected item is the only one expanded on the page, so it doesn\'t use a highlight.'
+      },
+      {
+        'selector': '.stack-item:last',
+        'text': 'Google TV viewers will always have a widescreen display. Make use of its horizontal space in novel ways to improve your user experiece.'
+      }
+    ],
+    'overscanpage': [
+      {
+        'selector': '.overscan-abs-row',
+        'text': 'This DIV is a 1920 pixels wide, and on some TVs will be completely visible. On others, the right side will be hidden by overscan.'
+      },
+      {
+        'selector': '.overscan-pct-row',
+        'text': 'This DIV is 100% wide in the screen, meaning that it will always be full size, but never beyond the dimensions of the screen regardless of overscan.'
+      },
+      {
+        'selector': '.overscan-abs-row > .overscan-arrow-text',
+        'text': 'This measurement is always 1920 pixels because the DIV size is fixed.' },
+      {
+        'selector': '.overscan-pct-row > .overscan-arrow-text',
+        'text': 'This measurement varies based on the amount of overscan on the display, but is always full size.'
+      },
+      {
+        'selector': '.overscan-size',
+        'text': 'This shows the exact dimensions of the screen, accounting for overscan. Notice both width and height are impacted.'
+      }
+    ],
+    'slidingpage': [
+      {
+        'selector': '.slider-item-row-style:eq(0)',
+        'text': 'In this demo, images are scrolled in using animation instead of loading a new page'
+      },
+      {
+        'selector': '.slider-item-style:eq(0)',
+        'position': 'center',
+        'text': 'The selected image is brightly highlighted with a thick border, easily visible from 10 feet'
+      },
+      {
+        'selector': '.slider-item-style:eq(2)',
+        'position': 'center',
+        'text': 'Pressing the right arrow will scroll to the next page, and put the selection on the next image on this row'
+      },
+      {
+        'selector': '.slider-item-style:eq(5)',
+        'position': 'center',
+        'text': 'Scrolling to the right from this row will put the user on the same row on the subsequent page'
+      }
+    ],
+    'rollingpage': [
+      {
+        'selector': '.scroll-row-style:eq(0)',
+        'text': 'The selected image is clearly outlined in a thick border.'
+      },
+      {
+        'selector': '.scroll-row-style:eq(2)',
+        'position': 'center',
+        'text': 'This row is displayed but opaque, a hint to the user that up/down arrows can reach it.'
+      },
+      {
+        'selector': '.scroll-row-style:eq(1)',
+        'position': 'center',
+        'text': 'This row will transition visually up and underneath when the up arrow is pressed, a visual clue that the rows are \"rolling\".'
+      },
+      {
+        'selector': '.scroll-row-style:eq(0)',
+        'position': 'right',
+        'text': 'Each row can also scroll horizontally so rows can contain more content. The position in each row is remembered.'
+      }
+    ],
+    'scrollingpage': [
+      {
+        'selector': '.scroll-row',
+        'text': 'This row smoothly scrolls images'
+      },
+      {
+        'selector': '.scroll-item:eq(0)',
+        'position': 'center',
+        'text': 'The selected image is brightly highlighted with a thick border, easily visible from 10 feet'
+      },
+      {
+        'selector': '.scroll-item:eq(1)',
+        'position': 'center',
+        'text': 'These images can be selected by d-pad navigation and by hovering over them with the mouse'
+      },
+      {
+        'selector': '.scroll-row',
+        'position': 'right',
+        'text': 'When this image is selected, the control will scroll over so that the entire image is visible'
+      }
+    ],
+    'fontspage': [
+      {
+        'selector': '.font-item:eq(0)',
+        'position': 'center',
+        'text': 'The Google Font Directory is an excellent source of fonts for your site. Also, CSS3\'s @font-face directive allows use of any TrueType or OpenType font.'
+      },
+      {
+        'selector': '.font-demo-item:eq(0)',
+        'text': 'Don\'t be shy about large fonts for titles, headings, etc. Your viewers are a long way away.'
+      },
+      {
+        'selector': '.font-demo-item:eq(4)',
+        'position': 'left',
+        'text': 'At 1080p, these font sizes are about right for regular text. You won\'t be able to fit as much content on a page, but it will be legible.'
+      },
+      {
+        'selector': '.font-demo-item:eq(7)',
+        'position': 'left',
+        'text': 'Fonts this size and below are generally illegible from a 10-foot distance.'
+      }
+    ]
+  };
 
-      var controlParams = {
-        finishCallback: finishCallback,
-        keyController: main.keyController,
-        buttonStyle: 'insight-button-style',
-        selectedStyle: 'insight-selected',
-        coverStyle: 'insight-cover-style',
-        descriptionParams: descriptionParams
-      };
+  var descriptionParams = {
+    size: {
+      width: 400,
+      height: 350
+    },
+    style: 'insight-description-style'
+  };
 
-      var insightControl = new gtv.jq.InsightControl(controlParams);
-      insightControl.makeControl(topParent, insightData);
-    });
+  var controlParams = {
+    finishCallback: finishCallback,
+    keyController: main.keyController,
+    buttonStyle: 'insight-button-style',
+    selectedStyle: 'insight-selected',
+    coverStyle: 'insight-cover-style',
+    descriptionParams: descriptionParams
+  };
+
+  var insightControl = new gtv.jq.InsightControl(controlParams);
+  insightControl.makeControl(topParent, insightCategoryData[category]);
 };
 
 /**
