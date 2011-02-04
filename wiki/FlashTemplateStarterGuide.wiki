@@ -2,27 +2,51 @@ Starter guide to the Flash templates for Google TV
 
 = Introduction =
 
-In this project, you will find 2 templates based on Flash available for download. These templates are provided as a starting point for Flash developers who wants to create an optimized site for Google TV. These templates utilize the Google TV UI Library (AS3 version). All the graphics components in the templates are defined in a swf, and content is loaded from XML files. We also provide some controls in the templates, like an scrollable grid, as an example of how to make complex graphic controls. 
+In this project, you will find 2 templates based on Flash available for download. These templates are provided as a starting point for Flash developers who wants to create an optimized site for Google TV. A library of controls (referred as GTVLib in this document) is included as part of the templates. All the graphics components in the templates are defined in a swf, and content is loaded from XML files. We also provide some controls in the templates, like an scrollable grid, as an example of how to make complex graphic controls. 
 
 Template 1 design is suitable for sites with a lot of video content broken into multiple categories.
 Template 2 design is suitable for sites with less video content.
 
-Here are live URLs of each template for your perusal. 
+Here are live URLs of each template for your perusal. To view them on your desktop browser, you need to have the Flash Player 10.2 plugin installed on your browser:
+
   *[http:// Template 1]
   *[http:// Template 2]
 
 == Development Environment Pre-requisites ==
-You can download the Google TV Library source code and binary from [http://code.google.com/p/gtv-ui-lib/downloads/list here], and you can access the library documentation here.
 
-For the template source code, download Template 1 or our Template 2 here. Both templates have the Google TV Lib binary included.
+For the template source code, download Template 1 or our Template 2 here. Both templates have a library of controls (GTVLib) included.
 
-As part of your development environment, you will need the [http://www.java.com/en/download/index.jsp latest Java JRE installed], the [http://opensource.adobe.com/wiki/display/flexsdk/Download+Flex+Hero Flex 4.5 SDK (codename “Hero”)], and [http://labs.adobe.com/downloads/flashplayer10.html Flash Player 10.2 Release Candidate] installed too.
+As part of your development environment, you will need the   
+  * [http://www.java.com/en/download/index.jsp latest Java JRE installed]
+  * the [http://opensource.adobe.com/wiki/display/flexsdk/Download+Flex+Hero Flex 4.5 SDK (codename “Hero”)]
+  * [http://labs.adobe.com/downloads/flashplayer10.html Flash Player 10.2 Release Candidate] installed in your desktop browser.
 
 We also provided ant build scripts so you can easily build the example applications. To use the ant build script, you would need to install [http://ant.apache.org/ Apache Ant].
 
 For instructions on how to build the sources, please look for the README.txt files inside the packages.
 
-== How do I use the GTVLib? ==
+== What is GTVLib? ==
+
+GTVLib is meant to help Flash developers building sites specially designed for GoogleTV. 
+Before continuing read further, we highly recommend you to go over [http://code.google.com/tv/web/docs/design_for_tv.html Designing For TV] and familiarize yourself with best practices on the general design of TV applications.
+
+GTVLib is NOT an API that allows you to access unique hardware features of Google TV device. The embeded Flash Player in Google TV devices already allows you to do some of that (like identifying the Media Keys), and if something cannot be accessed through the Flash Player library, the general rule is that you won’t be able to access it within your flash application.
+
+So, what is GTVLib then? Well the library we provide is a simple framework that should help you develop content specially designed for TV. For example, you can group your main functional areas in each of your applications pages in different *Navigation Zones*. The *Controls* within a *Navigation Zone* will be navigable using the Google TV keyboard DPad keys, and when you reach the end of a *Navigation Zone*, you will automatically move to the next closest *Navigation Zone*.
+
+http://gtv-resources.googlecode.com/svn/wiki/images/GTVFlashLib.png
+
+The GTVLib provides some classes that already handles this navigation behaviours, with lot of customization options.
+
+===Do I need anything special to work with GTVLib?===
+
+You should know that the Flash Player that comes installed in the Google TV devices is a special build versioned 10.1 GTV. This particular build has all the features of Flash Player 10.1, plus support for the new StageVideo component introduced in Flash Player 10.2 (in desktop versions).
+
+So in order to develop for Google TV, you will have to use Flash Player 10.2, and the Flex 4.5 SDK (both of them haven’t been released yet, but they are very stable now).
+
+But be careful, some of the features from FP 10.2 are not supported in FP 10.1 GTV, like the new StageVideoEvent.STAGE_VIDEO_AVAILABILITY event type.
+
+=== How do I use GTVLib? ===
 
 The most important concepts inside GTVLib are *Navigation Zones* and *Controls*. A navigation zone can contain controls and/or other navigation zones.
 
