@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+  <categories>
+    <category>
+      <title>I/O Keynotes</title>
+      <description>I/O Keynotes at Moscone Center</description>
+      <thumb url="icons/google-io.jpg"/>
+      <videos url="xml/keynotes.xml"/>
+    </category>
+    <category>
+      <title>Google Developer Day</title>
+      <description>Videos from around the world</description>
+      <videos url="xml/devday.xml"/>
+      <thumb url="icons/gdd.jpg"/>
+    </category>
+    <category>
+      <title>I/O Keynotes</title>
+      <description>I/O Keynotes at Moscone Center</description>
+      <thumb url="icons/chrome.jpg"/>
+      <videos url="xml/keynotes.xml"/>
+    </category>
+    <category>
+      <title>Google Developer Day</title>
+      <description>Videos from around the world</description>
+      <videos url="xml/devday.xml"/>
+      <thumb url="icons/video4.jpg"/>
+    </category>
+    <category>
+      <title>I/O Keynotes</title>
+      <description>I/O Keynotes at Moscone Center</description>
+      <thumb url="icons/google-io.jpg"/>
+      <videos url="xml/keynotes.xml"/>
+    </category>
+    <category>
+      <title>Google Developer Day</title>
+      <description>Videos from around the world</description>
+      <videos url="xml/devday.xml"/>
+      <thumb url="icons/gdd.jpg"/>
+    </category>
+    <category>
+      <title>I/O Keynotes</title>
+      <description>I/O Keynotes at Moscone Center</description>
+      <thumb url="icons/chrome.jpg"/>
+      <videos url="xml/keynotes.xml"/>
+    </category>
+    <category>
+      <title>Google Developer Day</title>
+      <description>Videos from around the world</description>
+      <videos url="xml/devday.xml"/>
+      <thumb url="icons/video4.jpg"/>
+    </category>
+    <category>
+      <title>I/O Keynotes</title>
+      <description>I/O Keynotes at Moscone Center</description>
+      <thumb url="icons/google-io.jpg"/>
+      <videos url="xml/keynotes.xml"/>
+    </category>
+    <category>
+      <title>Google Developer Day</title>
+      <description>Videos from around the world</description>
+      <videos url="xml/devday.xml"/>
+      <thumb url="icons/gdd.jpg"/>
+    </category>
+    <category>
+      <title>I/O Keynotes</title>
+      <description>I/O Keynotes at Moscone Center</description>
+      <thumb url="icons/chrome.jpg"/>
+      <videos url="xml/keynotes.xml"/>
+    </category>
+    <category>
+      <title>Google Developer Day</title>
+      <description>Videos from around the world</description>
+      <videos url="xml/devday.xml"/>
+      <thumb url="icons/video4.jpg"/>
+    </category>
+    <category>
+      <title>I/O Keynotes</title>
+      <description>I/O Keynotes at Moscone Center</description>
+      <thumb url="icons/google-io.jpg"/>
+      <videos url="xml/keynotes.xml"/>
+    </category>
+    <category>
+      <title>Google Developer Day</title>
+      <description>Videos from around the world</description>
+      <videos url="xml/devday.xml"/>
+      <thumb url="icons/gdd.jpg"/>
+    </category>
+    <category>
+      <title>I/O Keynotes</title>
+      <description>I/O Keynotes at Moscone Center</description>
+      <thumb url="icons/chrome.jpg"/>
+      <videos url="xml/keynotes.xml"/>
+    </category>
+    <category>
+      <title>Google Developer Day</title>
+      <description>Videos from around the world</description>
+      <videos url="xml/devday.xml"/>
+      <thumb url="icons/video4.jpg"/>
+    </category>
+    <category>
+      <title>I/O Keynotes</title>
+      <description>I/O Keynotes at Moscone Center</description>
+      <thumb url="icons/google-io.jpg"/>
+      <videos url="xml/keynotes.xml"/>
+    </category>
+    <category>
+      <title>Google Developer Day</title>
+      <description>Videos from around the world</description>
+      <videos url="xml/devday.xml"/>
+      <thumb url="icons/gdd.jpg"/>
+    </category>
+    <category>
+      <title>I/O Keynotes</title>
+      <description>I/O Keynotes at Moscone Center</description>
+      <thumb url="icons/chrome.jpg"/>
+      <videos url="xml/keynotes.xml"/>
+    </category>
+    <category>
+      <title>Google Developer Day</title>
+      <description>Videos from around the world</description>
+      <videos url="xml/devday.xml"/>
+      <thumb url="icons/video4.jpg"/>
+    </category>
+    <category>
+      <title>I/O Keynotes</title>
+      <description>I/O Keynotes at Moscone Center</description>
+      <thumb url="icons/google-io.jpg"/>
+      <videos url="xml/keynotes.xml"/>
+    </category>
+    <category>
+      <title>Google Developer Day</title>
+      <description>Videos from around the world</description>
+      <videos url="xml/devday.xml"/>
+      <thumb url="icons/gdd.jpg"/>
+    </category>
+    <category>
+      <title>I/O Keynotes</title>
+      <description>I/O Keynotes at Moscone Center</description>
+      <thumb url="icons/chrome.jpg"/>
+      <videos url="xml/keynotes.xml"/>
+    </category>
+    <category>
+      <title>Google Developer Day</title>
+      <description>Videos from around the world</description>
+      <videos url="xml/devday.xml"/>
+      <thumb url="icons/video4.jpg"/>
+    </category>
+  </categories>
+</config>
