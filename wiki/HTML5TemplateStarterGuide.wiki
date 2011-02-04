@@ -66,6 +66,27 @@ The implementation provided in the templates is an example using static data in 
 Both templates have their own stylesheets, located in styles.css.
 
 ==Deploying the Templates==
-To deploy the templates, you'll need to first copy the files in their existing structure to the web server.
 
+===Copy the Files===
+To deploy the templates, you'll need to first copy the files in their existing directory structure to the web server.
+
+===Create the DataProvider===
 Next, you'll need to set up your data provider. You could use a static file to enumerate your videos, but more likely you'll implement a server-side handler for AJAX calls. Then modify dataprovider.js to call your server and retrieve the data in the correct format.
+
+The Template code expects a data object in the following format:
+{{{
+   - categories: [category1, category2, ..., categoryN].
+   - category: {name, items}.
+   - items: [item1, item2, ..., itemN]
+   - item: {image, title, description, videos}
+   - videos: {thumb, title, subtitle, description, sources}
+   - sources: [source1, source2, ..., sourceN]
+   - source: string with the url | {src, type, codecs}
+}}}
+
+Since the Template may make multiple calls to read from the data provider while the user navigates the site, caching the results is advised.
+
+===Ratings (Template 1)===
+The Video Details page in Template 1 includes controls for the user to rate the videos they are watching. This work is handled by the ThumbsNav control. Supporting this rating system on your site is optional. If you don't wish to have it, you can remove the ThumbsNav control from the page.
+
+If you do want to hook in a ratings system, you'll need to fill in the stubs for the ratings event handlers. When the user presses the "thumbs-up" or "thumbs-down" buttons, you'll need to make an AJAX call to alter the rating of the video they are viewing on the server. This call might also return the new compounded rating of the video if you want to provide immediate feedback of the rating change.
