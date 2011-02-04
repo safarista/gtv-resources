@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+  <categories>
+    <category>
+      <title>Dev Events</title>
+      <categories url="xml/dev-events.xml"/>
+    </category>
+    <category>
+      <title>Technology</title>
+      <categories url="xml/technology.xml"/>
+    </category>
+    <category>
+      <title>Conferences</title>
+      <categories url="xml/conferences.xml"/>
+    </category>
+    <category>
+      <title>Google Me</title>
+      <categories url="xml/meet-google.xml"/>
+    </category>
+  </categories>
+</config>
