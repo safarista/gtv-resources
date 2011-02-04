@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+	<categories>
+		<category>
+			<title>I/O Keynotes</title>
+            <description>I/O Keynotes at Moscone Center</description>
+			<videos url="xml/keynotes.xml" />
+		</category>
+		<category>
+			<title>GDD</title>
+            <description>Videos from around the world</description>
+			<videos url="xml/devday.xml" />
+		</category>
+        <category>
+			<title>Chrome</title>
+            <description>HOWTO Videos</description>
+			<videos url="xml/chrome.xml" />
+		</category>
+		<category>
+			<title>Campfire</title>
+            <description>Campfire</description>
+			<videos url="xml/marketplace.xml" />
+		</category>
+        <category>
+			<title>All</title>
+            <description>All Videos</description>
+			<videos url="xml/all.xml" />
+		</category>
+	</categories>
+</config>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<videos>
+  <video url="http://commondatastorage.googleapis.com/gtv_template_assets/CF1-AppsMarketplace-Part1.mp4">
+    <thumb url="thumbs/video1-s.jpg"/>
+    <title>Campfire Part 1</title>
+    <description>First part of Apps Marketplace Campfire</description>
+    <duration>0:10:03</duration>
+    <score>5</score>
+  </video>
+  <video url="http://commondatastorage.googleapis.com/gtv_template_assets/CF1-AppsMarketplace-Part2.mp4">
+    <thumb url="thumbs/video2-s.jpg"/>
+    <title>Campfire Part 2</title>
+    <description>Second part of Apps Marketplace Campfire</description>
+    <duration>0:04:10</duration>
+    <score>5</score>
+  </video>
+  <video url="http://commondatastorage.googleapis.com/gtv_template_assets/CF1-AppsMarketplace-Part3.mp4">
+    <thumb url="thumbs/video3-s.jpg"/>
+    <title>Campfire Part 3</title>
+    <description>Third part of Apps Marketplace Campfire</description>
+    <duration>0:10:01</duration>
+    <score>5</score>
+  </video>
+  <video url="http://commondatastorage.googleapis.com/gtv_template_assets/CF1-AppsMarketplace-Part4.mp4">
+    <thumb url="thumbs/video4-s.jpg"/>
+    <title>Campfire Part 4</title>
+    <description>Fourth part of Apps Marketplace Campfire</description>
+    <duration>0:10:03</duration>
+    <score>5</score>
+  </video>
+  <video url="http://commondatastorage.googleapis.com/gtv_template_assets/CF1-AppsMarketplace-Part5.mp4">
+    <thumb url="thumbs/video5-s.jpg"/>
+    <title>Campfire Part 5</title>
+    <description>Fifth part of Apps Marketplace Campfire</description>
+    <duration>0:10:03</duration>
+    <score>5</score>
+  </video>
+  <video url="http://commondatastorage.googleapis.com/gtv_template_assets/CF1-AppsMarketplace-Part6.mp4">
+    <thumb url="thumbs/video6-s.jpg"/>
+    <title>Campfire Part 6</title>
+    <description>Last part of Apps Marketplace Campfire</description>
+    <duration>0:03:48</duration>
+    <score>5</score>
+  </video>
+  <video url="http://commondatastorage.googleapis.com/gtv_template_assets/IO2009-Keynote-day1.mp4">
+    <thumb url="thumbs/2009-day1keynote.jpg"/>
+    <title>2009 Day 1 Keynote</title>
+    <description>Video footage from Day 1 keynote at Google I/O 2009</description>
+    <duration>1:28:01</duration>
+    <score>4</score>
+  </video>
+  <video url="http://commondatastorage.googleapis.com/gtv_template_assets/IO2010-Keynote-day1.mp4">
+    <thumb url="thumbs/2010-day1keynote.jpg"/>
+    <title>2010 Day 1 Keynote</title>
+    <description>Video footage from Day 1 keynote at Google I/O 2010</description>
+    <duration>2:05:08</duration>
+    <score>5</score>
+  </video>
+  <video url="http://commondatastorage.googleapis.com/gtv_template_assets/IO2010-Keynote-day2-android.mp4">
+    <thumb url="thumbs/2010-day2keynote.jpg"/>
+    <title>2010 Day 2 Keynote</title>
+    <description>Video footage from Day 2 keynote at Google I/O 2010</description>
+    <duration>45:33</duration>
+    <score>4</score>
+  </video>
+  <video url="http://commondatastorage.googleapis.com/gtv_template_assets/GDD2010-Highlights.mp4">
+    <thumb url="thumbs/2010highlights.jpg"/>
+    <title>2010 Highlights</title>
+    <description>Video highlights from Google Developer Day 2010</description>
+    <duration>02:53</duration>
+    <score>5</score>
+  </video>
+  <video url="http://commondatastorage.googleapis.com/gtv_template_assets/GDD2010-BR-Keynote.mp4">
+    <thumb url="thumbs/brazil.jpg"/>
+    <title>2010 Keynote - Brazil</title>
+    <description>Video footage from keynote at GDD 2010 in Brazil</description>
+    <duration>1:11:59</duration>
+    <score>4</score>
+  </video>
+  <video url="http://commondatastorage.googleapis.com/gtv_template_assets/ChromeFrame.mp4">
+    <thumb url="thumbs/usingGoogleC1.jpg"/>
+    <title>Using Google Chrome Frame</title>
+    <description>How to start using Google Chrome Frame.</description>
+    <duration>0:02:24</duration>
+    <score>5</score>
+  </video>
+  <video url="http://commondatastorage.googleapis.com/gtv_template_assets/CWS-GettingStarted.mp4">
+    <thumb url="thumbs/usingGoogleC2.jpg"/>
+    <title>Using Google Chrome Frame</title>
+    <description>Why Google started to work on web apps for Chrome.</description>
+    <duration>0:04:10</duration>
+    <score>5</score>
+  </video>
+  <video url="http://commondatastorage.googleapis.com/gtv_template_assets/Chrome-Accessibility.mp4">
+    <thumb url="thumbs/extensions.jpg"/>
+    <title>Google Chrome Extensions and Accessibility</title>
+    <description>How developers can incorporate accessibility best practices.</description>
+    <duration>0:03:38</duration>
+    <score>5</score>
+  </video>
+  <video url="http://commondatastorage.googleapis.com/gtv_template_assets/CWS-HowTo.mp4">
+    <thumb url="thumbs/uploading.jpg"/>
+    <title>Uploading your App</title>
+    <description>How to upload your app to the Chrome Web Store</description>
+    <duration>0:03:49</duration>
+    <score>5</score>
+  </video>
+</videos>
