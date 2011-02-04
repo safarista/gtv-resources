@@ -14,7 +14,7 @@
 
 /**
  * @fileoverview Implements the Pong sub page for the demo site.
- * @author shines@google.com (Steven Hines)
+ * 
  */
 
 

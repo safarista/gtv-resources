@@ -14,7 +14,7 @@
 
 /**
  * @fileoverview Implements the Overscan sub page of the bestpractices site.
- * @author shines@google.com (Steven Hines)
+ * 
  */
 
 /**

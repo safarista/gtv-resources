@@ -14,7 +14,7 @@
 
 /**
  * @fileoverview Implements the RollerControl page for the bestpractices site.
- * @author shines@google.com (Steven Hines)
+ * 
  */
 
 /**

@@ -14,7 +14,7 @@
 
 /**
  * @fileoverview Implements the Tutorial sub page for the demo site.
- * @author shines@google.com (Steven Hines)
+ * 
  */
 
 

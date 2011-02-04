@@ -15,7 +15,7 @@
 /**
  * @fileoverview Implements all subpages of the bestpractices demo site except
  *     Pong and Tutorial.
- * @author shines@google.com (Steven Hines)
+ * 
  */
 
 /**

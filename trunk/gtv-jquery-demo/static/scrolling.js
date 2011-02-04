@@ -14,7 +14,7 @@
 
 /**
  * @fileoverview Implements the RowControl page for the bestpractices site.
- * @author shines@google.com (Steven Hines)
+ * 
  */
 
 /**

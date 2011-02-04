@@ -15,7 +15,7 @@
 /**
  * @fileoverview Classes for Template Page
  *
- * @author alevin@google.com (Andres Levin), jatucha@google.com (Jorge Atucha)
+ * 
  */
 
 var gtv = gtv || {

@@ -14,7 +14,7 @@
 
 /**
  * @fileoverview Class for ArrowControl
- * @author shines@google.com (Steven Hines)
+ * 
  */
 
 var gtv = gtv || {

@@ -14,7 +14,7 @@
 
 /**
  * @fileoverview Implements the Video Feed page for the bestpractices site.
- * @author shines@google.com (Steven Hines)
+ * 
  */
 
 /**
