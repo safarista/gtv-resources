@@ -14,7 +14,7 @@
 
 /**
  * @fileoverview Classes for HintsControl
- * @author shines@google.com (Steven Hines)
+ * 
  */
 
 var gtv = gtv || {

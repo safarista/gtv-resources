@@ -36,7 +36,7 @@
  *    The KeyController handles most behaviors automatically, including arrow
  *    keys, mouseenter, etc.
  *
- * @author shines@google.com (Steven Hines)
+ * 
  */
 
 var gtv = gtv || {
@@ -480,6 +480,7 @@ gtv.jq.KeyController.prototype.removeBehaviorZone = function(zone) {
     for (var i = 0; i < zoneLayer.behaviorZones.length; i++) {
       if (zoneLayer.behaviorZones[i] == zone) {
         zoneLayer.behaviorZones.splice(i, 1);
+        break;
       }
     }
   }
@@ -761,6 +762,7 @@ gtv.jq.KeyController.prototype.attachZone_ = function(zone) {
                  for (var layer = 0; layer < zone.layers.length; layer++) {
                    if (zone.layers[layer] == keyController.activeLayer_) {
                      keyController.moveSelected_(null, $(this));
+                     break;
                    }
                  }
                }
@@ -773,6 +775,7 @@ gtv.jq.KeyController.prototype.attachZone_ = function(zone) {
                  for (var layer = 0; layer < zone.layers.length; layer++) {
                    if (zone.layers[layer] == keyController.activeLayer_) {
                      keyController.click_($(this));
+                     break;
                    }
                  }
                }

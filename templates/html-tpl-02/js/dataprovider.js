@@ -15,7 +15,7 @@
 /**
  * @fileoverview Classes for DataProvider
  *
- * @author alevin@google.com (Andres Levin), jatucha@google.com (Jorge Atucha)
+ * 
  */
 
 var gtv = gtv || {

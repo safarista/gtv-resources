@@ -17,7 +17,7 @@
  *     public static methods for processing feeds. SynchronizedCallback
  *     can be used to aggregate multiple asynch callback events into a single
  *     call.
- * @author shines@google.com (Steven Hines)
+ * 
  */
 
 var gtv = gtv || {

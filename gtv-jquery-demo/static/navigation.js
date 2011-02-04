@@ -14,7 +14,7 @@
 
 /**
  * @fileoverview Implements the menu navigation page for the bestpractices site.
- * @author shines@google.com (Steven Hines)
+ * 
  */
 
 /**
