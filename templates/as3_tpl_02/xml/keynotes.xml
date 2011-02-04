@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<videos>
+  <video url="http://commondatastorage.googleapis.com/gtv_template_assets/IO2009-Keynote-day1.mp4">
+    <thumb url="thumbs/2009-day1keynote.jpg"/>
+    <title>2009 Day 1 Keynote</title>
+    <description>Video footage from Day 1 keynote at Google I/O 2009</description>
+    <duration>1:28:01</duration>
+    <score>4</score>
+  </video>
+  <video url="http://commondatastorage.googleapis.com/gtv_template_assets/IO2010-Keynote-day1.mp4">
+    <thumb url="thumbs/2010-day1keynote.jpg"/>
+    <title>2010 Day 1 Keynote</title>
+    <description>Video footage from Day 1 keynote at Google I/O 2010</description>
+    <duration>2:05:08</duration>
+    <score>5</score>
+  </video>
+  <video url="http://commondatastorage.googleapis.com/gtv_template_assets/IO2010-Keynote-day2-android.mp4">
+    <thumb url="thumbs/2010-day2keynote.jpg"/>
+    <title>2010 Day 2 Keynote</title>
+    <description>Video footage from Day 2 keynote at Google I/O 2010</description>
+    <duration>45:33</duration>
+    <score>4</score>
+  </video>
+  <video url="http://commondatastorage.googleapis.com/gtv_template_assets/IO2009-Keynote-day1.mp4">
+    <thumb url="thumbs/2009-day1keynote.jpg"/>
+    <title>2009 Day 1 Keynote</title>
+    <description>Video footage from Day 1 keynote at Google I/O 2009</description>
+    <duration>1:28:01</duration>
+    <score>4</score>
+  </video>
+  <video url="http://commondatastorage.googleapis.com/gtv_template_assets/IO2010-Keynote-day1.mp4">
+    <thumb url="thumbs/2010-day1keynote.jpg"/>
+    <title>2010 Day 1 Keynote</title>
+    <description>Video footage from Day 1 keynote at Google I/O 2010</description>
+    <duration>2:05:08</duration>
+    <score>5</score>
+  </video>
+  <video url="http://commondatastorage.googleapis.com/gtv_template_assets/IO2010-Keynote-day2-android.mp4">
+    <thumb url="thumbs/2010-day2keynote.jpg"/>
+    <title>2010 Day 2 Keynote</title>
+    <description>Video footage from Day 2 keynote at Google I/O 2010</description>
+    <duration>45:33</duration>
+    <score>4</score>
+  </video>
+  <video url="http://commondatastorage.googleapis.com/gtv_template_assets/IO2009-Keynote-day1.mp4">
+    <thumb url="thumbs/2009-day1keynote.jpg"/>
+    <title>2009 Day 1 Keynote</title>
+    <description>Video footage from Day 1 keynote at Google I/O 2009</description>
+    <duration>1:28:01</duration>
+    <score>4</score>
+  </video>
+  <video url="http://commondatastorage.googleapis.com/gtv_template_assets/IO2010-Keynote-day1.mp4">
+    <thumb url="thumbs/2010-day1keynote.jpg"/>
+    <title>2010 Day 1 Keynote</title>
+    <description>Video footage from Day 1 keynote at Google I/O 2010</description>
+    <duration>2:05:08</duration>
+    <score>5</score>
+  </video>
+  <video url="http://commondatastorage.googleapis.com/gtv_template_assets/IO2010-Keynote-day2-android.mp4">
+    <thumb url="thumbs/2010-day2keynote.jpg"/>
+    <title>2010 Day 2 Keynote</title>
+    <description>Video footage from Day 2 keynote at Google I/O 2010</description>
+    <duration>45:33</duration>
+    <score>4</score>
+  </video>
+  <video url="http://commondatastorage.googleapis.com/gtv_template_assets/IO2009-Keynote-day1.mp4">
+    <thumb url="thumbs/2009-day1keynote.jpg"/>
+    <title>2009 Day 1 Keynote</title>
+    <description>Video footage from Day 1 keynote at Google I/O 2009</description>
+    <duration>1:28:01</duration>
+    <score>4</score>
+  </video>
+  <video url="http://commondatastorage.googleapis.com/gtv_template_assets/IO2010-Keynote-day1.mp4">
+    <thumb url="thumbs/2010-day1keynote.jpg"/>
+    <title>2010 Day 1 Keynote</title>
+    <description>Video footage from Day 1 keynote at Google I/O 2010</description>
+    <duration>2:05:08</duration>
+    <score>5</score>
+  </video>
+  <video url="http://commondatastorage.googleapis.com/gtv_template_assets/IO2010-Keynote-day2-android.mp4">
+    <thumb url="thumbs/2010-day2keynote.jpg"/>
+    <title>2010 Day 2 Keynote</title>
+    <description>Video footage from Day 2 keynote at Google I/O 2010</description>
+    <duration>45:33</duration>
+    <score>4</score>
+  </video>
+  <video url="http://commondatastorage.googleapis.com/gtv_template_assets/IO2009-Keynote-day1.mp4">
+    <thumb url="thumbs/2009-day1keynote.jpg"/>
+    <title>2009 Day 1 Keynote</title>
+    <description>Video footage from Day 1 keynote at Google I/O 2009</description>
+    <duration>1:28:01</duration>
+    <score>4</score>
+  </video>
+  <video url="http://commondatastorage.googleapis.com/gtv_template_assets/IO2010-Keynote-day1.mp4">
+    <thumb url="thumbs/2010-day1keynote.jpg"/>
+    <title>2010 Day 1 Keynote</title>
+    <description>Video footage from Day 1 keynote at Google I/O 2010</description>
+    <duration>2:05:08</duration>
+    <score>5</score>
+  </video>
+  <video url="http://commondatastorage.googleapis.com/gtv_template_assets/IO2010-Keynote-day2-android.mp4">
+    <thumb url="thumbs/2010-day2keynote.jpg"/>
+    <title>2010 Day 2 Keynote</title>
+    <description>Video footage from Day 2 keynote at Google I/O 2010</description>
+    <duration>45:33</duration>
+    <score>4</score>
+  </video>
+  <video url="http://commondatastorage.googleapis.com/gtv_template_assets/IO2009-Keynote-day1.mp4">
+    <thumb url="thumbs/2009-day1keynote.jpg"/>
+    <title>2009 Day 1 Keynote</title>
+    <description>Video footage from Day 1 keynote at Google I/O 2009</description>
+    <duration>1:28:01</duration>
+    <score>4</score>
+  </video>
+  <video url="http://commondatastorage.googleapis.com/gtv_template_assets/IO2010-Keynote-day1.mp4">
+    <thumb url="thumbs/2010-day1keynote.jpg"/>
+    <title>2010 Day 1 Keynote</title>
+    <description>Video footage from Day 1 keynote at Google I/O 2010</description>
+    <duration>2:05:08</duration>
+    <score>5</score>
+  </video>
+  <video url="http://commondatastorage.googleapis.com/gtv_template_assets/IO2010-Keynote-day2-android.mp4">
+    <thumb url="thumbs/2010-day2keynote.jpg"/>
+    <title>2010 Day 2 Keynote</title>
+    <description>Video footage from Day 2 keynote at Google I/O 2010</description>
+    <duration>45:33</duration>
+    <score>4</score>
+  </video>
+</videos>
