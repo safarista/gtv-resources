@@ -14,8 +14,6 @@ You can see a demo of each of these templates in action here:
   * [http://gtv-resources.googlecode.com/svn/trunk/templates/html-tpl-01/index.html Template 1]
   * [http://gtv-resources.googlecode.com/svn/trunk/templates/html-tpl-02/index.html Template 2]
 
-[http://gtv-resources.googlecode.com/svn/wiki/images/GTVFlashLib.png]
-
 ==Template Structure==
 Each template has the following file system structure:
 {{{
