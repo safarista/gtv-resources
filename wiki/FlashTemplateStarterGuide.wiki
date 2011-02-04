@@ -9,8 +9,8 @@ Template 2 design is suitable for sites with less video content.
 
 Here are live URLs of each template for your perusal. To view them on your desktop browser, you need to have the Flash Player 10.2 plugin installed on your browser:
 
-  *[http://gtv-resources.googlecode.com/svn/trunk/templates/as3-01/AS3_Template_01.html Template 1]
-  *[http://gtv-resources.googlecode.com/svn/trunk/templates/as3-02/AS3_Template_02.html Template 2]
+  * [http://gtv-resources.googlecode.com/svn/trunk/templates/as3-01/AS3_Template_01.html Template 1]
+  * [http://gtv-resources.googlecode.com/svn/trunk/templates/as3-02/AS3_Template_02.html Template 2]
 
 == Development Environment Pre-requisites ==
 
