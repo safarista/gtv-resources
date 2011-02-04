@@ -4,14 +4,17 @@ Starter guide to the HTML5 Templates for Google TV
 
 In this project, you will find 2 templates based on HTML5, JavaScript and CSS3 available for download. The goal of these templates is to provide examples of websites optimized for a 10-foot UI experience. They are also intended to be a starting point for web developers who want to create a version of their site optimized for Google TV using those technologies.
 
-These templates utilize the [http://code.google.com/p/gtv-ui-lib Google TV JavaScript Library] (JQuery version) that provides a group of controls commonly used in web applications and also handles everything related to key strokes processing (D-Pad navigation buttons, Media keys, etc.). 
+These templates utilize the [http://code.google.com/p/gtv-ui-lib Google TV jQuery UI Library] that provides a group of controls commonly used in web applications and also handles everything related to keyboard navigation and media keys.
 
-Template 1 design is suitable for sites with a lot of video content broken into multiple categories.
-Template 2 design is suitable for sites with less video content.
+Template 1 is designed for sites with a significant amount of video content. It has a tiered navigation structure, allowing the user to choose their video category from the main page, and then navigate within that category in a fullscreen palyback page. It also has a video details view that provides the user with details about the video as well as a ratings system.
 
-Here are live URLs of each template for your perusals: 
+Template 2 is is for sites with less content that wish to present everything on a single page. This template places category selection and a video selection carousel on a single page, one place where the user can navigate the entire video library.
+
+You can see a demo of each of these templates in action here:
   * [http://gtv-resources.googlecode.com/svn/trunk/templates/html-tpl-01/index.html Template 1]
   * [http://gtv-resources.googlecode.com/svn/trunk/templates/html-tpl-02/index.html Template 2]
+
+[http://gtv-resources.googlecode.com/svn/wiki/images/GTVFlashLib.png]
 
 ==Template Structure==
 Each template has the following file system structure:
@@ -39,7 +42,7 @@ Html files define only the page layout as most of the content is drawn in runtim
 
 ===JavaScript files===
 There is one JavaScript file per HTML file  the dataprovider file.
-{{{       
+{{{
        - Template 1: index.js and fullscreen.js
        - Template 2: index.js
        - Both templates: dataprovider.js
@@ -47,12 +50,12 @@ There is one JavaScript file per HTML file  the dataprovider file.
 
 ===Pages JavaScripts===
 They define the TemplatePage javascript class which have functions for creating all page controls, keeps a reference for every page control and handle the page events.
-	
+
 ===Data provider file===
 It defines the DataProvider JavaScript class which encapsulates everything related to the way of getting the information to be used in templates (Menu options, thumbnails, videos, etc.).
 
 In the ideal situation this would be the only file to be changed if someone were to use one of the templates for its own application. For example, if you need to get data using AJAX calls, this would be the appropriate place to put those AJAX calls to get information from server.
-       
+
 ===CSS Stylesheet files===
 Both templates have separate style-sheet file called styles.css.
 
