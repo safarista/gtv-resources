@@ -164,14 +164,13 @@ function onQueryDecorate(queryInput) {
       });
 }
 
-var previewsContainer;
-
-function onPreviewsDecorate(container) {
-  previewsContainer = container;
+function onPreviewsDecorate() {
   loadPreviews('movie trailers');
 }
 
 function loadPreviews(query, opt_focusPreviews) {
+  var previewsContainer = tv.ui.getComponentByElement(
+      goog.dom.getElementByClass('ajax-previews'));
   previewsContainer.removeChildren();
   var scrollElement = goog.dom.getElementByClass(
       'tv-container-middle-scroll', previewsContainer.getElement());
@@ -201,8 +200,7 @@ function loadPreviews(query, opt_focusPreviews) {
 
         var firstPreviewButton = previewsContainer.getChildren()[0];
         if (opt_focusPreviews && firstPreviewButton) {
-          firstPreviewButton.getDocument().setFocusedComponent(
-              firstPreviewButton);
+          firstPreviewButton.tryFocus();
         }
       });
 }
