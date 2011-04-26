@@ -1,6 +1,6 @@
 <html>
 <head>
-  <title>tv.ui.Decoration Demos</title>
+  <title>Google TV UI Library Demos</title>
   <link rel="stylesheet" href="/static/tv-ui/container.css" type="text/css"/>
   <link rel="stylesheet" href="/static/tv-ui/lightbox.css" type="text/css"/>
   <link rel="stylesheet" href="/static/main.css" type="text/css"/>
@@ -19,6 +19,7 @@
     goog.require('tv.ui.Lightbox');
     goog.require('tv.ui.Link');
     goog.require('tv.ui.Menu');
+    goog.require('tv.ui.SubMenu');
     goog.require('tv.ui.TabContainer');
     goog.require('tv.ui.ToggleButton');
   </script>
@@ -71,7 +72,7 @@
 
     tv.ui.postponeRender(function() {
       tv.ui.decorate(document.body, decorateHandler.getHandler());
-      tv.ui.Document.getInstance().setFocusedComponent(firstNavItem);
+      firstNavItem.tryFocus();
     });
   </script>
 </body>

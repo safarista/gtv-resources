@@ -6,57 +6,72 @@
 
 <style>
 
-.menus-continents-expanding-menu,
-.menus-continents-sliding-menu {
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-.menus-continents-sliding-menu,
-.menus-continents-sliding-menu .menus-countries-menu {
-  width: 190px;
-}
-
-.menus-countries-menu,
-.menus-cities {
-  display: none;
-}
-
-.menus-continents-expanding-menu .menus-countries-menu,
-.menus-continents-expanding-menu .menus-cities {
-  -webkit-transition: left 200ms ease;
-  left: -190px;
+.menus-continents-expanding-menu {
   position: relative;
 }
 
-.menus-countries-menu.tv-container-selected-child,
-.menus-cities.tv-container-selected-child {
-  display: block;
+.menus-continents-sliding-menu {
+  background-color: #4C6EA7;
+  position: relative;
+  width: 190px;
 }
 
-.menus-continents-expanding-menu .menus-countries-menu.tv-component-focused,
-.menus-continents-expanding-menu .menus-cities.tv-component-focused {
+.menus-continents-sliding-menu,
+.menus-continents-sliding-menu .tv-menu {
+  -webkit-border-radius: 5px;
+  height: 90px;
+}
+
+.menus-continents-sliding-menu .tv-menu {
+  background-color: #405c8c;
+}
+
+.menus-continents-sliding-menu .tv-menu .tv-menu {
+  background-color: #344c73;
+}
+
+.tv-sub-menu > .tv-menu {
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.menus-continents-expanding-menu .tv-sub-menu > .tv-menu {
+  left: 195px;
+  z-index: -1;
+}
+
+.menus-continents-expanding-menu .tv-sub-menu > .tv-menu.tv-component-focused {
+  z-index: 0;
+}
+
+.menus-continents-sliding-menu .tv-sub-menu > .tv-menu {
+  -webkit-transition: left 200ms ease;
+  left: 190px;
+}
+
+.menus-continents-sliding-menu .tv-sub-menu > .tv-menu.tv-component-focused {
   left: 0;
 }
 
-.menus-continents-sliding-menu > .tv-container-start-scroll,
-.menus-continents-sliding-menu .menus-countries-menu > .tv-container-start-scroll {
+.menus-viewport {
   -webkit-transition: left 200ms ease;
+  position: relative;
+  left: -190px;
 }
 
-.menus-continents,
-.menus-continents-content,
-.menus-countries,
-.menus-countries-content {
-  display: inline-block;
-  overflow: hidden;
-  vertical-align: top;
+.tv-menu.tv-component-focused > .menus-viewport {
+  left: 0;
 }
 
 .menus-item {
+  -webkit-border-radius: 5px;
   cursor: pointer;
-  height: 30px;
-  line-height: 30px;
+  height: 28px;
+  line-height: 28px;
+  padding: 1px;
+  width: 188px;
 }
 
 .menus-item-text,
@@ -65,29 +80,28 @@
 }
 
 .menus-item-text {
-  padding-left: 5px;
+  padding-left: 4px;
   width: 150px;
 }
 
 .menus-item-arrow {
+  padding-right: 4px;
+  text-align: right;
   width: 30px;
 }
 
-.menus-continents-expanding-menu.tv-component-focused .menus-item.tv-container-selected-child {
+.tv-sub-menu.tv-component-focused > .menus-item,
+.menus-item.tv-component-focused {
   border: 1px solid white;
-  height: 28px;
-  line-height: 28px;
-  width: 188px;
+  padding: 0;
 }
 
-.menus-item.tv-component-focused,
-.menus-continents-expanding-menu.tv-component-focused .menus-item.tv-component-focused {
+.menus-item.tv-component-focused {
   background: white;
   color: black;
 }
 
-.menus-item.menus-splash,
-.menus-continents-expanding-menu.tv-component-focused .menus-item.menus-splash {
+.menus-item.menus-splash {
   -webkit-transition: background 300ms, color 300ms;
   background: none;
   color: #FCFCFC;
@@ -98,292 +112,253 @@
 <p>Menu extends tab container by introducing new ways of navigation, such as entering submenu when <code>Enter</code> is pressed.
 As other TV UI components, menu doesn't imply any specific looks. This expanding menu...
 
-<div class="menus-continents-expanding-menu tv-menu tv-container-horizontal">
-    <div class="menus-continents tv-container tv-container-vertical tv-tab-container-bar">
-      <div class="menus-item tv-button">
-        <div class="menus-item-text">Asia</div>
-        <div class="menus-item-arrow">&rarr;</div>
-      </div>
-      <div class="menus-item tv-button">
-        <div class="menus-item-text">Europe</div>
-        <div class="menus-item-arrow">&rarr;</div>
-      </div>
-      <div class="menus-item tv-button">
-        <div class="menus-item-text">North America</div>
-        <div class="menus-item-arrow">&rarr;</div>
-      </div>
+<div class="menus-continents-expanding-menu tv-menu tv-container-vertical">
+  <div class="tv-sub-menu tv-container-horizontal">
+    <div class="menus-item tv-button">
+      <div class="menus-item-text">Asia</div><div class="menus-item-arrow">&rarr;</div>
     </div>
-    <div class="menus-continents-content tv-container tv-container-stack tv-tab-container-content">
-
-      <div class="menus-countries-menu tv-menu tv-container-horizontal">
-          <div class="menus-countries tv-container tv-container-vertical tv-tab-container-bar">
-            <div class="menus-item tv-button">
-              <div class="menus-item-text">China</div>
-              <div class="menus-item-arrow">&rarr;</div>
-            </div>
-            <div class="menus-item tv-button">
-              <div class="menus-item-text">South Korea</div>
-              <div class="menus-item-arrow">&rarr;</div>
-            </div>
+    <div class="tv-menu tv-container-vertical">
+      <div class="menus-viewport">
+        <div class="tv-sub-menu tv-container-horizontal">
+          <div class="menus-item tv-button">
+            <div class="menus-item-text">China</div><div class="menus-item-arrow">&rarr;</div>
           </div>
-          <div class="menus-countries-content tv-container tv-container-stack tv-tab-container-content">
-            <div class="menus-cities tv-container tv-container-vertical">
+          <div class="tv-menu tv-container-vertical">
+            <div class="menus-viewport">
               <div class="menus-city menus-item tv-button">
                 <div class="menus-item-text">Beijing</div>
-                <div class="menus-item-arrow"></div>
               </div>
               <div class="menus-city menus-item tv-button">
                 <div class="menus-item-text">Shanghai</div>
-                <div class="menus-item-arrow"></div>
               </div>
             </div>
-            <div class="menus-cities tv-container tv-container-vertical">
+          </div>
+        </div>
+        <div class="tv-sub-menu tv-container-horizontal">
+          <div class="menus-item tv-button">
+            <div class="menus-item-text">South Korea</div><div class="menus-item-arrow">&rarr;</div>
+          </div>
+          <div class="tv-menu tv-container-vertical">
+            <div class="menus-viewport">
               <div class="menus-city menus-item tv-button">
                 <div class="menus-item-text">Busan</div>
-                <div class="menus-item-arrow"></div>
               </div>
               <div class="menus-city menus-item tv-button">
                 <div class="menus-item-text">Seoul</div>
-                <div class="menus-item-arrow"></div>
               </div>
             </div>
           </div>
+        </div>
       </div>
-
-      <div class="menus-countries-menu tv-menu tv-container-horizontal">
-          <div class="menus-countries tv-container tv-container-vertical tv-tab-container-bar">
-            <div class="menus-item tv-button">
-              <div class="menus-item-text">Poland</div>
-              <div class="menus-item-arrow">&rarr;</div>
-            </div>
-            <div class="menus-item tv-button">
-              <div class="menus-item-text">Switzerland</div>
-              <div class="menus-item-arrow">&rarr;</div>
-            </div>
+    </div>
+  </div>
+  <div class="tv-sub-menu tv-container-horizontal">
+    <div class="menus-item tv-button">
+      <div class="menus-item-text">Europe</div><div class="menus-item-arrow">&rarr;</div>
+    </div>
+    <div class="tv-menu tv-container-vertical">
+      <div class="menus-viewport">
+        <div class="tv-sub-menu tv-container-horizontal">
+          <div class="menus-item tv-button">
+            <div class="menus-item-text">Poland</div><div class="menus-item-arrow">&rarr;</div>
           </div>
-          <div class="menus-countries-content tv-container tv-container-stack tv-tab-container-content">
-            <div class="menus-cities tv-container tv-container-vertical">
+          <div class="tv-menu tv-container-vertical">
+            <div class="menus-viewport">
               <div class="menus-city menus-item tv-button">
                 <div class="menus-item-text">Krakow</div>
-                <div class="menus-item-arrow"></div>
               </div>
               <div class="menus-city menus-item tv-button">
                 <div class="menus-item-text">Warsaw</div>
-                <div class="menus-item-arrow"></div>
               </div>
             </div>
-            <div class="menus-cities tv-container tv-container-vertical">
+          </div>
+        </div>
+        <div class="tv-sub-menu tv-container-horizontal">
+          <div class="menus-item tv-button">
+            <div class="menus-item-text">Switzerland</div><div class="menus-item-arrow">&rarr;</div>
+          </div>
+          <div class="tv-menu tv-container-vertical">
+            <div class="menus-viewport">
               <div class="menus-city menus-item tv-button">
                 <div class="menus-item-text">Geneva</div>
-                <div class="menus-item-arrow"></div>
               </div>
               <div class="menus-city menus-item tv-button">
                 <div class="menus-item-text">Zurich</div>
-                <div class="menus-item-arrow"></div>
               </div>
             </div>
           </div>
+        </div>
       </div>
-
-      <div class="menus-countries-menu tv-menu tv-container-horizontal">
-          <div class="menus-countries tv-container tv-container-vertical tv-tab-container-bar">
-            <div class="menus-item tv-button">
-              <div class="menus-item-text">Canada</div>
-              <div class="menus-item-arrow">&rarr;</div>
-            </div>
-            <div class="menus-item tv-button">
-              <div class="menus-item-text">United States</div>
-              <div class="menus-item-arrow">&rarr;</div>
-            </div>
+    </div>
+  </div>
+  <div class="tv-sub-menu tv-container-horizontal">
+    <div class="menus-item tv-button">
+      <div class="menus-item-text">North America</div><div class="menus-item-arrow">&rarr;</div>
+    </div>
+    <div class="tv-menu tv-container-vertical">
+      <div class="menus-viewport">
+        <div class="tv-sub-menu tv-container-horizontal">
+          <div class="menus-item tv-button">
+            <div class="menus-item-text">Canada</div><div class="menus-item-arrow">&rarr;</div>
           </div>
-          <div class="menus-countries-content tv-container tv-container-stack tv-tab-container-content">
-            <div class="menus-cities tv-container tv-container-vertical">
+          <div class="tv-menu tv-container-vertical">
+            <div class="menus-viewport">
               <div class="menus-city menus-item tv-button">
                 <div class="menus-item-text">Montreal</div>
-                <div class="menus-item-arrow"></div>
               </div>
               <div class="menus-city menus-item tv-button">
                 <div class="menus-item-text">Toronto</div>
-                <div class="menus-item-arrow"></div>
-              </div>
-            </div>
-            <div class="menus-cities tv-container tv-container-vertical">
-              <div class="menus-city menus-item tv-button">
-                <div class="menus-item-text">Los Angeles</div>
-                <div class="menus-item-arrow"></div>
-              </div>
-              <div class="menus-city menus-item tv-button">
-                <div class="menus-item-text">New York</div>
-                <div class="menus-item-arrow"></div>
               </div>
             </div>
           </div>
+        </div>
+        <div class="tv-sub-menu tv-container-horizontal">
+          <div class="menus-item tv-button">
+            <div class="menus-item-text">United States</div><div class="menus-item-arrow">&rarr;</div>
+          </div>
+          <div class="tv-menu tv-container-vertical">
+            <div class="menus-viewport">
+              <div class="menus-city menus-item tv-button">
+                <div class="menus-item-text">Los Angeles</div>
+              </div>
+              <div class="menus-city menus-item tv-button">
+                <div class="menus-item-text">New York</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-
     </div>
+  </div>
 </div>
 
 <p>...mostly differs from sliding menu by CSS styles, having almost identical HTML structure.
 
-<div class="menus-continents-sliding-menu tv-menu tv-container-horizontal">
-  <div class="tv-container-start-scroll">
-    <div class="menus-continents tv-container tv-container-vertical tv-tab-container-bar">
-      <div class="menus-item tv-button">
-        <div class="menus-item-text">Asia</div>
-        <div class="menus-item-arrow">&rarr;</div>
+<div class="menus-continents-sliding-menu tv-menu tv-container-vertical">
+  <div class="tv-sub-menu tv-container-horizontal">
+    <div class="menus-item tv-button">
+      <div class="menus-item-text">Asia</div><div class="menus-item-arrow">&rarr;</div>
+    </div>
+    <div class="tv-menu tv-container-vertical">
+      <div class="menus-item tv-button tv-sub-menu-back-button">
+        <div class="menus-item-text">&larr; Back</div>
       </div>
-      <div class="menus-item tv-button">
-        <div class="menus-item-text">Europe</div>
-        <div class="menus-item-arrow">&rarr;</div>
+      <div class="tv-sub-menu tv-container-horizontal">
+        <div class="menus-item tv-button">
+          <div class="menus-item-text">China</div><div class="menus-item-arrow">&rarr;</div>
+        </div>
+        <div class="tv-menu tv-container-vertical">
+          <div class="menus-item tv-button tv-sub-menu-back-button">
+            <div class="menus-item-text">&larr; Back</div>
+          </div>
+          <div class="menus-city menus-item tv-button">
+            <div class="menus-item-text">Beijing</div>
+          </div>
+          <div class="menus-city menus-item tv-button">
+            <div class="menus-item-text">Shanghai</div>
+          </div>
+        </div>
       </div>
-      <div class="menus-item tv-button">
-        <div class="menus-item-text">North America</div>
-        <div class="menus-item-arrow">&rarr;</div>
+      <div class="tv-sub-menu tv-container-horizontal">
+        <div class="menus-item tv-button">
+          <div class="menus-item-text">South Korea</div><div class="menus-item-arrow">&rarr;</div>
+        </div>
+        <div class="tv-menu tv-container-vertical">
+          <div class="menus-item tv-button tv-sub-menu-back-button">
+            <div class="menus-item-text">&larr; Back</div>
+          </div>
+          <div class="menus-city menus-item tv-button">
+            <div class="menus-item-text">Busan</div>
+          </div>
+          <div class="menus-city menus-item tv-button">
+            <div class="menus-item-text">Seoul</div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="menus-continents-content tv-container tv-container-stack tv-tab-container-content">
-
-      <div class="menus-countries-menu tv-menu tv-container-horizontal">
-        <div class="tv-container-start-scroll">
-          <div class="menus-countries tv-container tv-container-vertical tv-tab-container-bar">
-            <div class="menus-item tv-button tv-menu-back-button">
-              <div class="menus-item-text">&larr; Back</div>
-            </div>
-            <div class="menus-item tv-button">
-              <div class="menus-item-text">China</div>
-              <div class="menus-item-arrow">&rarr;</div>
-            </div>
-            <div class="menus-item tv-button">
-              <div class="menus-item-text">South Korea</div>
-              <div class="menus-item-arrow">&rarr;</div>
-            </div>
+  </div>
+  <div class="tv-sub-menu tv-container-horizontal">
+    <div class="menus-item tv-button">
+      <div class="menus-item-text">Europe</div><div class="menus-item-arrow">&rarr;</div>
+    </div>
+    <div class="tv-menu tv-container-vertical">
+      <div class="menus-item tv-button tv-sub-menu-back-button">
+        <div class="menus-item-text">&larr; Back</div>
+      </div>
+      <div class="tv-sub-menu tv-container-horizontal">
+        <div class="menus-item tv-button">
+          <div class="menus-item-text">Poland</div><div class="menus-item-arrow">&rarr;</div>
+        </div>
+        <div class="tv-menu tv-container-vertical">
+          <div class="menus-item tv-button tv-sub-menu-back-button">
+            <div class="menus-item-text">&larr; Back</div>
           </div>
-          <div class="menus-countries-content tv-container tv-container-stack tv-tab-container-content">
-            <div class="tv-container"></div>
-            <div class="menus-cities tv-container tv-container-vertical">
-              <div class="menus-item tv-button tv-menu-back-button">
-                <div class="menus-item-text">&larr; Back</div>
-              </div>
-              <div class="menus-city menus-item tv-button">
-                <div class="menus-item-text">Beijing</div>
-                <div class="menus-item-arrow"></div>
-              </div>
-              <div class="menus-city menus-item tv-button">
-                <div class="menus-item-text">Shanghai</div>
-                <div class="menus-item-arrow"></div>
-              </div>
-            </div>
-            <div class="menus-cities tv-container tv-container-vertical">
-              <div class="menus-item tv-button tv-menu-back-button">
-                <div class="menus-item-text">&larr; Back</div>
-              </div>
-              <div class="menus-city menus-item tv-button">
-                <div class="menus-item-text">Busan</div>
-                <div class="menus-item-arrow"></div>
-              </div>
-              <div class="menus-city menus-item tv-button">
-                <div class="menus-item-text">Seoul</div>
-                <div class="menus-item-arrow"></div>
-              </div>
-            </div>
+          <div class="menus-city menus-item tv-button">
+            <div class="menus-item-text">Krakow</div>
+          </div>
+          <div class="menus-city menus-item tv-button">
+            <div class="menus-item-text">Warsaw</div>
           </div>
         </div>
       </div>
-
-      <div class="menus-countries-menu tv-menu tv-container-horizontal">
-        <div class="tv-container-start-scroll">
-          <div class="menus-countries tv-container tv-container-vertical tv-tab-container-bar">
-            <div class="menus-item tv-button tv-menu-back-button">
-              <div class="menus-item-text">&larr; Back</div>
-            </div>
-            <div class="menus-item tv-button">
-              <div class="menus-item-text">Poland</div>
-              <div class="menus-item-arrow">&rarr;</div>
-            </div>
-            <div class="menus-item tv-button">
-              <div class="menus-item-text">Switzerland</div>
-              <div class="menus-item-arrow">&rarr;</div>
-            </div>
+      <div class="tv-sub-menu tv-container-horizontal">
+        <div class="menus-item tv-button">
+          <div class="menus-item-text">Switzerland</div><div class="menus-item-arrow">&rarr;</div>
+        </div>
+        <div class="tv-menu tv-container-vertical">
+          <div class="menus-item tv-button tv-sub-menu-back-button">
+            <div class="menus-item-text">&larr; Back</div>
           </div>
-          <div class="menus-countries-content tv-container tv-container-stack tv-tab-container-content">
-            <div class="tv-container"></div>
-            <div class="menus-cities tv-container tv-container-vertical">
-              <div class="menus-item tv-button tv-menu-back-button">
-                <div class="menus-item-text">&larr; Back</div>
-              </div>
-              <div class="menus-city menus-item tv-button">
-                <div class="menus-item-text">Krakow</div>
-                <div class="menus-item-arrow"></div>
-              </div>
-              <div class="menus-city menus-item tv-button">
-                <div class="menus-item-text">Warsaw</div>
-                <div class="menus-item-arrow"></div>
-              </div>
-            </div>
-            <div class="menus-cities tv-container tv-container-vertical">
-              <div class="menus-item tv-button tv-menu-back-button">
-                <div class="menus-item-text">&larr; Back</div>
-              </div>
-              <div class="menus-city menus-item tv-button">
-                <div class="menus-item-text">Geneva</div>
-                <div class="menus-item-arrow"></div>
-              </div>
-              <div class="menus-city menus-item tv-button">
-                <div class="menus-item-text">Zurich</div>
-                <div class="menus-item-arrow"></div>
-              </div>
-            </div>
+          <div class="menus-city menus-item tv-button">
+            <div class="menus-item-text">Geneva</div>
+          </div>
+          <div class="menus-city menus-item tv-button">
+            <div class="menus-item-text">Zurich</div>
           </div>
         </div>
       </div>
-
-      <div class="menus-countries-menu tv-menu tv-container-horizontal">
-        <div class="tv-container-start-scroll">
-          <div class="menus-countries tv-container tv-container-vertical tv-tab-container-bar">
-            <div class="menus-item tv-button tv-menu-back-button">
-              <div class="menus-item-text">&larr; Back</div>
-            </div>
-            <div class="menus-item tv-button">
-              <div class="menus-item-text">Canada</div>
-              <div class="menus-item-arrow">&rarr;</div>
-            </div>
-            <div class="menus-item tv-button">
-              <div class="menus-item-text">United States</div>
-              <div class="menus-item-arrow">&rarr;</div>
-            </div>
+    </div>
+  </div>
+  <div class="tv-sub-menu tv-container-horizontal">
+    <div class="menus-item tv-button">
+      <div class="menus-item-text">North America</div><div class="menus-item-arrow">&rarr;</div>
+    </div>
+    <div class="tv-menu tv-container-vertical">
+      <div class="menus-item tv-button tv-sub-menu-back-button">
+        <div class="menus-item-text">&larr; Back</div>
+      </div>
+      <div class="tv-sub-menu tv-container-horizontal">
+        <div class="menus-item tv-button">
+          <div class="menus-item-text">Canada</div><div class="menus-item-arrow">&rarr;</div>
+        </div>
+        <div class="tv-menu tv-container-vertical">
+          <div class="menus-item tv-button tv-sub-menu-back-button">
+            <div class="menus-item-text">&larr; Back</div>
           </div>
-          <div class="menus-countries-content tv-container tv-container-stack tv-tab-container-content">
-            <div class="tv-container"></div>
-            <div class="menus-cities tv-container tv-container-vertical">
-              <div class="menus-item tv-button tv-menu-back-button">
-                <div class="menus-item-text">&larr; Back</div>
-              </div>
-              <div class="menus-city menus-item tv-button">
-                <div class="menus-item-text">Montreal</div>
-                <div class="menus-item-arrow"></div>
-              </div>
-              <div class="menus-city menus-item tv-button">
-                <div class="menus-item-text">Toronto</div>
-                <div class="menus-item-arrow"></div>
-              </div>
-            </div>
-            <div class="menus-cities tv-container tv-container-vertical">
-              <div class="menus-item tv-button tv-menu-back-button">
-                <div class="menus-item-text">&larr; Back</div>
-              </div>
-              <div class="menus-city menus-item tv-button">
-                <div class="menus-item-text">Los Angeles</div>
-                <div class="menus-item-arrow"></div>
-              </div>
-              <div class="menus-city menus-item tv-button">
-                <div class="menus-item-text">New York</div>
-                <div class="menus-item-arrow"></div>
-              </div>
-            </div>
+          <div class="menus-city menus-item tv-button">
+            <div class="menus-item-text">Montreal</div>
+          </div>
+          <div class="menus-city menus-item tv-button">
+            <div class="menus-item-text">Toronto</div>
           </div>
         </div>
       </div>
-
+      <div class="tv-sub-menu tv-container-horizontal">
+        <div class="menus-item tv-button">
+          <div class="menus-item-text">United States</div><div class="menus-item-arrow">&rarr;</div>
+        </div>
+        <div class="tv-menu tv-container-vertical">
+          <div class="menus-item tv-button tv-sub-menu-back-button">
+            <div class="menus-item-text">&larr; Back</div>
+          </div>
+          <div class="menus-city menus-item tv-button">
+            <div class="menus-item-text">Los Angeles</div>
+          </div>
+          <div class="menus-city menus-item tv-button">
+            <div class="menus-item-text">New York</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

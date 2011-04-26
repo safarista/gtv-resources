@@ -12,27 +12,24 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 /**
- * @fileoverview Menu with submenus.
- * Based on tab container. Tab bar should consist of buttons which represent
- * menu items, tab content - of containers which represent submenus. When button
- * in tab bar is pressed, menu will focus appropriate container in tab content.
+ * @fileoverview Menu is a container with transient selection which is aware of
+ * items with sub-menus.
  */
 goog.provide('tv.ui.Menu');
 
-goog.require('tv.ui.Button');
-goog.require('tv.ui.TabContainer');
+goog.require('goog.functions');
+goog.require('tv.ui.Container');
 
 /**
  * Constructs menu.
  * @constructor
- * @extends {tv.ui.TabContainer}
+ * @extends {tv.ui.Container}
  */
 tv.ui.Menu = function() {
   goog.base(this);
 };
-goog.inherits(tv.ui.Menu, tv.ui.TabContainer);
+goog.inherits(tv.ui.Menu, tv.ui.Container);
 
 /**
  * @type {string} Main CSS class that triggers decoration.
@@ -41,15 +38,15 @@ tv.ui.Menu.CLASS = 'tv-menu';
 tv.ui.registerDecorator(tv.ui.Menu, tv.ui.Menu.CLASS);
 
 /**
- * CSS classes that control look and feel of menu.
+ * CSS classes that reflect look of menu.
  * @enum {string}
  */
 tv.ui.Menu.Class = {
   /**
-   * A button inside tab content which when pressed will bring focus back to
-   * corresponding menu item in tab bar.
+   * Applied to root element if currently selected menu item is expanded.
+   * @see #hasOpenedSubMenu
    */
-  BACK_BUTTON: 'tv-menu-back-button'
+  HAS_OPENED_SUB_MENU: 'tv-menu-has-opened-sub-menu'
 };
 
 /**
@@ -65,93 +62,67 @@ tv.ui.Menu.prototype.getClass = function() {
 tv.ui.Menu.prototype.addChild = function(child) {
   goog.base(this, 'addChild', child);
 
-  if (goog.dom.classes.has(
-      child.getElement(), tv.ui.TabContainer.Class.BAR)) {
+  if (child instanceof tv.ui.SubMenu) {
     this.getEventHandler().listen(
-        /** @type {tv.ui.Container} */(child),
-        tv.ui.Button.EventType.ACTION,
-        this.onBarAction);
-  } else if (goog.dom.classes.has(
-      child.getElement(), tv.ui.TabContainer.Class.CONTENT)) {
-    this.getEventHandler().listen(
-        /** @type {tv.ui.Container} */(child),
-        tv.ui.Button.EventType.ACTION,
-        this.onContentAction);
-    this.getEventHandler().listen(
-        /** @type {tv.ui.Container} */(child),
-        tv.ui.Component.EventType.KEY,
-        this.onContentKey);
+        child,
+        tv.ui.Container.EventType.SELECT_CHILD,
+        this.onSubMenuSelectChild_);
   }
 };
 
 /**
- * @inheritDoc
- */
-tv.ui.Menu.prototype.onBarSelectChild = function(event) {
-  goog.base(this, 'onBarSelectChild', event);
-  this.resetSubMenuSelection_();
-};
-
-/**
- * @inheritDoc
- */
-tv.ui.Menu.prototype.onBarFocus = function(event) {
-  this.resetSubMenuSelection_();
-  goog.base(this, 'onBarFocus', event);
-};
-
-/**
- * Handles action event on tab bar.
- * Focuses sub-menu that corresponds to selected menu item.
- * @param {goog.events.Event} event Action event.
- * @protected
- */
-tv.ui.Menu.prototype.onBarAction = function(event) {
-  if (!goog.dom.classes.has(
-      event.target.getElement(), tv.ui.Menu.Class.BACK_BUTTON)) {
-    this.resetSubMenuSelection_();
-    this.tryFocusSelectedDescendant(this.getContentContainer());
-    event.stopPropagation();
-  }
-};
-
-/**
- * Handles action event on tab content.
- * Focuses menu item that corresponds to selected sub-menu if 'Back' button was
- * pressed.
- * @param {goog.events.Event} event Action event.
- * @protected
- */
-tv.ui.Menu.prototype.onContentAction = function(event) {
-  if (goog.dom.classes.has(
-      event.target.getElement(), tv.ui.Menu.Class.BACK_BUTTON)) {
-    this.tryFocusSelectedDescendant(this.getBarContainer());
-    event.stopPropagation();
-  }
-};
-
-/**
- * Handles key event on tab content.
- * Focuses menu item that corresponds to selected sub-menu if Esc is pressed.
- * @param {goog.events.KeyEvent} event Key event.
- * @protected
- */
-tv.ui.Menu.prototype.onContentKey = function(event) {
-  if (event.keyCode == goog.events.KeyCodes.ESC) {
-    this.tryFocusSelectedDescendant(this.getBarContainer());
-    event.stopPropagation();
-  }
-};
-
-/**
- * Selects first child in sub-menu.
+ * Handles selection change in one of sub-menus.
+ * @param {goog.events.Event} event Selection change event.
  * @private
  */
-tv.ui.Menu.prototype.resetSubMenuSelection_ = function() {
-  if (this.getContentContainer()) {
-    var subMenu = this.getContentContainer().getSelectedChild();
-    if (subMenu instanceof tv.ui.Container) {
-      subMenu.selectFirstChild();
-    }
+tv.ui.Menu.prototype.onSubMenuSelectChild_ = function(event) {
+  var selectedChild = this.getSelectedChild();
+  if (event.target == selectedChild) {
+    goog.dom.classes.enable(
+        this.getElement(),
+        tv.ui.Menu.Class.HAS_OPENED_SUB_MENU,
+        selectedChild.getSelectedChild() instanceof tv.ui.Menu);
+    // TODO(maksym): Dispatch tv.ui.Menu.EventType.TOGGLE_SUB_MENU.
   }
+};
+
+/**
+ * @inheritDoc
+ */
+tv.ui.Menu.prototype.onKey = function(event) {
+  // Consider following component structure:
+  //
+  // - 1
+  //   - 1.1
+  //   - 1.2
+  // - 2
+  //
+  // If component 1.2 is focused and user presses Down key, focus will traverse
+  // to component 2. However if components 1.1 and 1.2 are placed inside
+  // sub-menu, such behavior is unwanted. Instead, we pass this key through.
+
+  if (this.hasOpenedSubMenu()) {
+    return;
+  }
+
+  goog.base(this, 'onKey', event);
+};
+
+/**
+ * @return {boolean} Whether currently selected menu item is expanded.
+ */
+tv.ui.Menu.prototype.hasOpenedSubMenu = function() {
+  return goog.dom.classes.has(
+      this.getElement(), tv.ui.Menu.Class.HAS_OPENED_SUB_MENU);
+};
+
+/**
+ * @inheritDoc
+ */
+tv.ui.Menu.prototype.adjustSelectionFromKey = function(keyCode) {
+  if (this.hasOpenedSubMenu()) {
+    // Don't alter the selection if we're not the final selected menu.
+    return false;
+  }
+  goog.base(this, 'adjustSelectionFromKey', keyCode);
 };

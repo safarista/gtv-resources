@@ -74,10 +74,10 @@ decorateHandler.addClassHandler('start-lightbox', function(button) {
   goog.events.listen(button, tv.ui.Button.EventType.ACTION, function() {
     var previousFocus = tv.ui.Document.getInstance().getFocusedComponent();
     lightbox = tv.ui.Lightbox.show(photos, 0 /* start index*/);
-    tv.ui.Document.getInstance().setFocusedComponent(lightbox);
+    lightbox.tryFocus();
     historyManager.setToken('lightbox');
     goog.events.listen(lightbox, tv.ui.Lightbox.EventType.CLOSE, function() {
-      tv.ui.Document.getInstance().setFocusedComponent(previousFocus);
+      previousFocus.tryFocus();
     });
   });
 });

@@ -20,6 +20,7 @@ class MainHandler(webapp.RequestHandler):
       {'title': 'Grid', 'template': 'grid.html'},
       {'title': 'Lightbox', 'template': 'lightbox.html'},
       {'title': 'Tab Container', 'template': 'tabcontainer.html'},
+      {'title': 'Menu', 'template': 'menu.html'},
       # TODO(maksym): Input demo.
       {'title': 'AJAX', 'template': 'ajax.html'}]
     self.render_template('main.html', {'demos': demos})
