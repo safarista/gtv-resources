@@ -206,7 +206,7 @@ gtv.jq.SideNavControl.prototype.showControl = function(showParams) {
       .data('index', j);
     itemDiv.append(item);
 
-    if (!firstItem)
+    if (!firstItem || j == showParams.highlightedCategoryIndex)
       firstItem = item;
 
     if (!addNextItem(item)) {
