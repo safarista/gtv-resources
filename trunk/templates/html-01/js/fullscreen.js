@@ -597,7 +597,20 @@ gtv.jq.TemplatePage.prototype.gotoMenu = function() {
 
   templatePage.videoControl.stop();
 
-  location.assign('index.html');
+  var queryString = location.search;
+
+  var parms = queryString.substring(1).split('&');
+
+  var selectedCategoryIndex = 0;
+  var selectedItemIndex = 0;
+  if (parms.length == 2) {
+    selectedCategoryIndex = parseInt(parms[0].substring(9));
+    selectedItemIndex = parseInt(parms[1].substring(5));
+  }
+
+  location.assign('index.html?category=' + selectedCategoryIndex 
+    + '&item=' + selectedItemIndex);
+
 };
 
 /**

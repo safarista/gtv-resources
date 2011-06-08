@@ -33,7 +33,7 @@ gtv.jq.TemplatePage = function() {
 /**
  * Creates the main menu control.
  */
-gtv.jq.TemplatePage.prototype.makeSideNav = function() {
+gtv.jq.TemplatePage.prototype.makeSideNav = function(selectedCategoryIndex) {
   var templatePage = this;
 
   var styles = {
@@ -73,8 +73,14 @@ gtv.jq.TemplatePage.prototype.makeSideNav = function() {
 
   templatePage.sideNavControl = new gtv.jq.SideNavControl(sidenavParms);
 
+  // make sure selectedCategoryIndex is in range
+  var highlightedCategoryIndex = selectedCategoryIndex;
+  if (selectedCategoryIndex >= templatePage.data.categories.length||selectedCategoryIndex < 0)
+     highlightedCategoryIndex = 0;
+
   var showParams = {
     topParent: $('#mainMenu'),
+    highlightedCategoryIndex: highlightedCategoryIndex,
     contents: {
       items: navItems
     }
@@ -189,6 +195,17 @@ gtv.jq.TemplatePage.prototype.doPageZoom = function() {
 gtv.jq.TemplatePage.prototype.start = function() {
   var templatePage = this;
 
+  var queryString = location.search;
+
+  var parms = queryString.substring(1).split('&');
+
+  var selectedCategoryIndex = 0;
+  var selectedItemIndex = 0;
+  if (parms.length == 2) {
+    selectedCategoryIndex = parseInt(parms[0].substring(9));
+    selectedItemIndex = parseInt(parms[1].substring(5));
+  }
+
   templatePage.keyController = new gtv.jq.KeyController();
 
   templatePage.doPageZoom();
@@ -196,7 +213,7 @@ gtv.jq.TemplatePage.prototype.start = function() {
   templatePage.dataProvider = new gtv.jq.DataProvider();
   templatePage.data = templatePage.dataProvider.getData();
 
-  templatePage.makeSideNav();
+  templatePage.makeSideNav(selectedCategoryIndex);
 
   $(document.body).css('visibility', '');
 
