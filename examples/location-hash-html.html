@@ -1,0 +1,241 @@
+<!--
+Copyright 2011 Google Inc. All Rights Reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+Author: Google TV Team
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>HTML: Using Location Hash To Maintain State</title>
+<style>
+body {
+  background-color: #000;
+  color: #f0f0f0;
+  font-family: 'Droid Sans TV', arial, serif;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+ul,
+li,
+p {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style-type: none;
+}
+
+.center {
+  margin: 0 auto;
+  text-align: center;
+  width: 800px;
+}
+
+
+/* Styles for top header and title area */
+#header {
+  background-color: #444;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#4D4D4D), to(#393939));
+  border-bottom: 1px solid #676767;
+  height: 62px;
+}
+#header img {
+  float: left;
+  padding-top: 8px;
+}
+#header h2 {
+  color: #fff;
+  float: left;
+  font-size: 24px;
+  font-weight: normal;
+  margin: 19px 0 0 18px;
+  text-shadow: #222 0px 2px 3px;
+}
+
+
+/* Style for main content */
+.main-content p {
+  color: #888;
+  font-size: 20px;
+  margin: 50px 0;
+}
+
+.button-bar button {
+  background-color: #333;
+  border: 3px solid #f0f0f0;
+  color: #f0f0f0;
+  font-size: 30px;
+  font-weight: bold;
+  margin-right: 10px;
+  height: 50px;
+  width: 180px;
+}
+
+.button-bar button:hover {
+  background-color: #676767;
+  border-color: #bfc;
+  cursor: pointer;
+}
+
+#hash-label {
+  color: #cfc;
+  font-size: 20px;
+  margin: 30px 0;
+}
+
+#image-placeholder {
+  display: inline-block;
+  height: 128px;
+  width: 128px;
+}
+</style>
+</head>
+
+<body>
+
+<section id="header">
+  <div class="center">
+    <img src="location-hash-content/images/gtv-horizontal.png">
+    <h2>HTML: Using Location Hash To Maintain State</h2>
+  </div>
+</section>
+
+<section class="main-content center">
+  <p>
+    Click on the buttons below to create new entries in the browser history.
+    <br>
+    User can then navigate forward/backward to traverse between states.
+  </p>
+
+  <div class="button-bar">
+    <button onclick="MyApp.updateApp(1, true);" type="button">ONE</button>
+    <button onclick="MyApp.updateApp(2, true);" type="button">TWO</button>
+    <button onclick="MyApp.updateApp(3, true);" type="button">THREE</button>
+    <button onclick="MyApp.updateApp(4, true);" type="button">FOUR</button>
+  </div>
+
+  <div id="hash-label">#</div>
+
+  <div id="image-placeholder"></div>
+</section>
+
+
+<script type="text/javascript">
+/**
+ * My web app instance
+ */
+var MyApp = {};
+
+MyApp.updateHashLabel = function(str) {
+  document.getElementById('hash-label').innerHTML = '#' + str;
+};
+
+MyApp.updateApp = function(hashValue, allowAppToUpdateHash) {
+  var index = parseInt(hashValue, 10);
+  var imageNode = document.getElementById('image-placeholder');
+
+  switch (index) {
+    case 1:
+      imageNode.style.backgroundImage =
+          'url(location-hash-content/images/android-logo.png)';
+      break;
+    case 2:
+      imageNode.style.backgroundImage =
+          'url(location-hash-content/images/chrome-logo.png)';
+      break;
+    case 3:
+      imageNode.style.backgroundImage =
+          'url(location-hash-content/images/gtv-logo.png)';
+      break;
+    case 4:
+      imageNode.style.backgroundImage =
+          'url(location-hash-content/images/remote-logo.png)';
+      break;
+    default:
+      imageNode.style.backgroundImage = 'none';
+      break;
+  }
+
+  // Update hash label
+  MyApp.updateHashLabel(hashValue);
+
+  // Create new entry in browser location history to mark new app state
+  if (allowAppToUpdateHash) {
+    setLocationHash(index);
+  }
+};
+
+
+/**
+ * Flag tells my onhashchange event handler whether my app should be updated
+ * whenever hash value changes. Enabled by default. If hash change comes from
+ * my app, use this flag to stop my onhashchange event handler from executing.
+ * @type boolean
+ */
+var allowHashToUpdateApp = true;
+
+/**
+ * Returns the value of the location hash.
+ */
+function getLocationHash () {
+  return window.location.hash.substring(1);
+}
+
+/**
+ * Called by my app to update location hash. Hash changes made through
+ * this function should be ignored by the hash change event handler.
+ * @param {string} str
+ */
+function setLocationHash(str) {
+  // Tell the event handler to ignore this change since its manually updated.
+  allowHashToUpdateApp = false;
+
+  window.location.hash = str;
+}
+
+/**
+ * Listen for hash changes. Use flag to determine whether hash changes should
+ * propagate updates to my app.
+ */
+window.onhashchange = function(e) {
+  // Update app only if hash change is allowed per flag.
+  if (allowHashToUpdateApp) {
+    MyApp.updateApp(getLocationHash(), false);
+  } else {
+    allowHashToUpdateApp = true;
+  }
+};
+
+/**
+ * Checks if any hash values exist on initial load and restores app state.
+ */
+window.onload = function() {
+  var hashValue = getLocationHash();
+  if (hashValue) {
+    MyApp.updateApp(hashValue, false);
+  }
+};
+</script>
+
+</body>
+</html>
