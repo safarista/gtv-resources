@@ -1,0 +1,377 @@
+/**
+ * Closure UI Library demo styles
+ */
+
+/* Styles for focused states */
+.vert-containers .tv-component.tv-component-focused,
+.horiz-containers .tv-component.tv-component-focused,
+.tv-input.tv-component-focused,
+.tv-button.tv-component-focused,
+.component-labels .tv-component.tv-component-focused {
+  background: #6391DE;
+  border-color: #eee;
+  -webkit-box-shadow: #6391DE 0px 0px 20px, #F2F2F2 0px 0px 20px, white 0px 0px 15px;
+}
+.component-images .tv-component.tv-component-focused {
+  -webkit-box-shadow: #63DE91 0px 0px 30px, #F2F2F2 0px 0px 20px, white 0px 0px 15px;
+}
+.component-text .tv-component.tv-component-focused {
+  color: #da0;
+  -webkit-box-shadow: #6391DE 0px 0px 20px, #F2F2F2 0px 0px 10px, white 0px 0px 5px;
+}
+.horiz-carousel-fancy .tv-component.tv-component-focused {
+  z-index: 100;
+  -webkit-transform: scale(1.5);
+}
+
+
+/* Transition styles */
+.tv-container-start-scroll,
+.tv-container-middle-scroll {
+  -webkit-transition-property: transform;
+  -webkit-transition-duration: 1000ms;
+  -webkit-transition-timing-function: cubic-bezier(0.050, 1.000, 0.325, 1.000);
+}
+.tv-component,
+.tv-button {
+  -webkit-transition-property: -webkit-box-shadow;
+  -webkit-transition-duration: 300ms;
+  -webkit-transition-timing-function: ease;
+}
+
+
+/* Component styles */
+.component-labels label {
+  border: 2px solid #f0f0f0;
+  color: #eee;
+  display: inline-block;
+  font-size: 24px;
+  font-weight: bold;
+  height: 30px;
+  margin-right: 10px;
+  text-align: center;
+  -webkit-border-radius: 4px;
+  width: 100px;
+}
+.component-images img {
+  height: 150px;
+  margin-right: 50px;
+  -webkit-border-radius: 4px;
+  width: 200px;
+}
+.component-text p {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+  height: 160px;
+  margin: 0 10px 50px 0;
+  overflow: hidden;
+  padding: 5px 10px;
+  vertical-align: top;
+  white-space: normal;
+  width: 400px;
+  -webkit-border-radius: 4px;
+}
+.component-text .text2 {
+  width: 550px;
+}
+
+
+/* Button styles */
+#dialog {
+  color: transparent;
+  font-size: 30px;
+  font-weight: bold;
+  margin: 90px 0 0 700px;
+  padding: 10px 5px;
+  text-align: center;
+  width: 300px;
+  -webkit-border-radius: 5px;
+}
+#dialog.animation {
+  -webkit-transition: all 2s ease;
+}
+#dialog.highlight {
+  background-color: #c3fff3;
+  color: #000;
+}
+
+
+.button-small div,
+.button-large div {
+  background: #ccd;
+  border: 3px solid #eed;
+  color: #222;
+  display: inline-block;
+  font-size: 24px;
+  font-weight: bold;
+  height: 30px;
+  margin: 20px;
+  text-align: center;
+  -webkit-border-radius: 8px;
+}
+.button-small div {
+  padding: 5px 15px;
+}
+.button-large div {
+  padding: 60px 60px;
+}
+.button-inputs .tv-input {
+  display: inline-block;
+  margin: 10px;
+}
+.button-inputs input {
+  font-size: 24px;
+  width: 400px;
+}
+.button-inputs .tv-input-hint {
+  color: #aaa;
+  display: none;
+  font-size: 24px;
+  font-style: italic;
+  padding: 6px 4px 0px;
+  position: absolute;
+}
+.button-inputs .input-large input {
+  font-size: 40px;
+  width: 600px
+}
+.button-inputs .input-large .tv-input-hint {
+  font-size: 40px;
+}
+.button-inputs .tv-input-hint-shown {
+  display: block;
+}
+
+
+/* toggle button */
+
+.tv-toggle-button {
+  cursor: pointer;
+  margin-top: 5px;
+  float: left;
+}
+ 
+.tv-toggle-button .checkbox-icon {
+  background-image: url("http://www.gstatic.com/tv/ch/icon/unchecked_normal.png");
+  display: inline-block;
+  height: 47px;
+  vertical-align: middle;
+  width: 47px;
+}
+ 
+.tv-toggle-button:hover .checkbox-icon,
+.tv-toggle-button.tv-component-focused .checkbox-icon {
+  background-image: url("http://www.gstatic.com/tv/ch/icon/unchecked_focused.png");
+}
+ 
+.tv-toggle-button:active .checkbox-icon {
+  background-image: url("http://www.gstatic.com/tv/ch/icon/unchecked_pressed.png");
+}
+ 
+.tv-toggle-button-on .checkbox-icon {
+  background-image: url("http://www.gstatic.com/tv/ch/icon/checked_normal.png");
+}
+ 
+.tv-toggle-button-on:hover .checkbox-icon,
+.tv-toggle-button-on.tv-component-focused .checkbox-icon {
+  background-image: url("http://www.gstatic.com/tv/ch/icon/checked_focused.png");
+}
+ 
+.tv-toggle-button-on:active .checkbox-icon {
+  background-image: url("http://www.gstatic.com/tv/ch/icon/checked_pressed.png");
+}
+ 
+.tv-toggle-button .checkbox-text {
+  color: #70767C;
+  line-height: 47px;
+  vertical-align: middle;
+}
+ 
+.tv-toggle-button:hover .checkbox-text,
+.tv-toggle-button.tv-component-focused .checkbox-text {
+  color: #CCC;
+}
+
+/* menu */
+.menus-continents-expanding-menu {
+  position: relative;
+}
+ 
+.menus-continents-sliding-menu {
+  background-color: #4C6EA7;
+  position: relative;
+  width: 190px;
+}
+ 
+.menus-continents-sliding-menu,
+.menus-continents-sliding-menu .tv-menu {
+  -webkit-border-radius: 5px;
+  height: 90px;
+}
+ 
+.menus-continents-sliding-menu .tv-menu {
+  background-color: #405c8c;
+}
+ 
+.menus-continents-sliding-menu .tv-menu .tv-menu {
+  background-color: #344c73;
+}
+ 
+.tv-sub-menu > .tv-menu {
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+ 
+.menus-continents-expanding-menu .tv-sub-menu > .tv-menu {
+  left: 195px;
+  z-index: -1;
+}
+ 
+.menus-continents-expanding-menu .tv-sub-menu > .tv-menu.tv-component-focused {
+  z-index: 0;
+}
+ 
+.menus-continents-sliding-menu .tv-sub-menu > .tv-menu {
+  -webkit-transition: left 200ms ease;
+  left: 190px;
+}
+ 
+.menus-continents-sliding-menu .tv-sub-menu > .tv-menu.tv-component-focused {
+  left: 0;
+}
+ 
+.menus-viewport {
+  -webkit-transition: left 200ms ease;
+  position: relative;
+  left: -190px;
+}
+ 
+.tv-menu.tv-component-focused > .menus-viewport {
+  left: 0;
+}
+ 
+.menus-item {
+  -webkit-border-radius: 5px;
+  cursor: pointer;
+  height: 28px;
+  line-height: 28px;
+  padding: 1px;
+  width: 188px;
+}
+ 
+.menus-item-text,
+.menus-item-arrow {
+  display: inline-block;
+}
+ 
+.menus-item-text {
+  padding-left: 4px;
+  width: 150px;
+}
+ 
+.menus-item-arrow {
+  padding-right: 4px;
+  text-align: right;
+  width: 30px;
+}
+ 
+.tv-sub-menu.tv-component-focused > .menus-item,
+.menus-item.tv-component-focused {
+  border: 1px solid white;
+  padding: 0;
+}
+ 
+.menus-item.tv-component-focused {
+  background: white;
+  color: black;
+}
+ 
+.menus-item.menus-splash {
+  -webkit-transition: background 300ms, color 300ms;
+  background: none;
+  color: #FCFCFC;
+}
+
+
+
+
+/* Horizontal container style */
+.horiz-containers li {
+  background-color: #DDD;
+  border: 4px solid transparent;
+  color: #000;
+  display: inline-block;
+  font-size: 100px;
+  font-weight: bold;
+  margin: 0 20px 20px 0;
+  padding: 30px 90px;
+}
+.horiz-carousel-fancy {
+  -webkit-transform: translate(420px, 0);
+  -webkit-perspective: 800;
+}
+.horiz-carousel-fancy li {
+  background-color: rgba(200, 200, 200, 0.7);
+  padding: 20px 70px;
+  -webkit-transition-property: -webkit-transform;
+  -webkit-transition-duration: 500ms;
+  -webkit-transition-timing-function: ease;
+}
+.horiz-carousel-fancy li.blank {
+  border: 0;
+  background: transparent;
+}
+
+
+/* Vertical container style */
+.vert-containers li {
+  font-size: 26px;
+  font-weight: bold;
+  margin: 10px;
+  padding: 6px;
+  text-align: center;
+  width: 200px;
+  -webkit-border-radius: 10px;
+}
+.vert-containers .vert-carousel {
+  display: inline-block;
+  height: 60px;
+  margin: 10px;
+  overflow: hidden;
+  padding: 6px;
+  vertical-align: top;
+  background: rgba(100, 100, 155, 0.4);
+  -webkit-border-radius: 4px 4px 4px 4px;
+  -webkit-transition-property: background;
+  -webkit-transition-duration: 100ms;
+  -webkit-transition-timing-function: ease;
+}
+.vert-carousel ul {
+  margin: 0px;
+}
+.vert-carousel.tv-component-focused {
+  background: rgba(100, 100, 155, 0.4);
+}
+
+
+
+.select-component {
+  font-size: 150%;
+  padding: 10px;
+  color: #FFFFFF;
+}
+
+.select-component:focus {
+  color: #FFFF00;
+}
+
+.select-component:active {
+  color: #FFFFFF;
+}
+.select-component:hover {
+  color: #FF0000;
+}
+

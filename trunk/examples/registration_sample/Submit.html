@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Google TV: Demo</title>
+    <link rel="stylesheet" href="demo-theme.css">
+    <link rel="stylesheet" href="closure-demo.css">
+  </head>
+  <body>
+    
+  <div id="header">
+    <div class="center">
+      <img alt="Google TV Logo" src="spotlightgallery-logo.png">
+      <h2>Google TV Closure Lib Demo</h2>
+      <div id="dialog"></div>
+    </div>
+
+  </div>
+
+  <ul id="colorstrip">
+    <li class="col1"></li>
+    <li class="col2"></li>
+    <li class="col3"></li>
+    <li class="col4"></li>
+  </ul>
+
+  <div id="main" class="tv-container-vertical center">
+
+  <form action="signup.php" method="post" class="form-sign-up" name="signUp">
+  <div class="tv-container-vertical button-inputs">
+						
+    <h2>Sign up</h2>
+
+    <div class="tv-input first-focus">
+       <div class="tv-input-hint">Name</div>
+       <input class="contact-name" type="text" name="ContactName" id="ContactName">
+    </div>
+    <br>
+    <div class="tv-input">
+       <div class="tv-input-hint">Email Address</div>
+       <input class="email" type="text" name="email" id="email" />
+    </div>
+    <br>
+    <div class="tv-input">
+       <div class="tv-input-hint">Username</div>
+       <input class="username" type="text" name="username" id="username" />
+    </div>
+    <br>
+    <div class="tv-input">
+       <div class="tv-input-hint">Password</div>
+       <input class="password" type="password" name="password" id="password" />
+    </div>
+    <br>
+    <div class="tv-input">
+       <div class="tv-input-hint">Company</div>
+       <input class="company" type="text" name="Company" id="Company" />
+    </div>
+    <br>
+
+    <p>Select your favorite colors</p>
+    <div class="tv-container-horizontal">
+      <div class="tv-toggle-button red"> 
+        <div class="checkbox-icon"></div> 
+        <span class="checkbox-text">RED</span> 
+        <input type="hidden" name="redinput" class="redinput" value="No"/>
+      </div> 
+
+      <div class="tv-toggle-button green"> 
+        <div class="checkbox-icon"></div> 
+        <span class="checkbox-text">GREEN</span> 
+        <input type="hidden" name="greeninput" class="greeninput" vale="No"/>
+      </div> 
+
+      <div class="tv-toggle-button blue"> 
+        <div class="checkbox-icon"></div> 
+        <span class="checkbox-text">BLUE</span> 
+        <input type="hidden" name="blueinput" class="blueinput" vale="No"/>
+      </div> 
+    </div> 
+    <br>
+    <br>
+    <br>
+    
+    <div class="tv-container-horizontal button-small">
+      <div class="tv-button">Submit</div>
+      <div class="tv-button">Reset</div>
+    </div>
+  </div>
+
+  </form>
+</div>
+
+    
+  </body>
+
+
+<script src="tv-ui-compiled.js" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+
+function showDialog(txt) {
+  var el = goog.dom.getElement('dialog');
+  el.innerHTML = txt;
+  goog.dom.classes.addRemove(el, 'animation', 'highlight');
+  window.setTimeout(function() {
+    goog.dom.classes.addRemove(el, 'highlight', 'animation');
+  }, 3000);
+}
+
+var decHandler = new tv.ui.DecorateHandler();
+decHandler.addClassHandler('tv-button', function(button) {
+  goog.events.listen(button, tv.ui.Button.EventType.ACTION, function(e) {
+   if( e.target.getElement().innerText == 'Reset' ) {
+    showDialog(e.target.getElement().innerHTML);
+    var name = goog.dom.getElementByClass('tv-input-hint');
+    name.display = 'block';
+    var signup = goog.dom.getElementByClass('form-sign-up');
+    signup.reset();
+   }
+
+   if( e.target.getElement().innerText == 'Submit' ) {
+    var name = goog.dom.getElementByClass('contact-name');
+    var email = goog.dom.getElementByClass('email');
+    var username = goog.dom.getElementByClass('username');
+    var password = goog.dom.getElementByClass('password');
+    var company = goog.dom.getElementByClass('company');
+    var red = goog.dom.getElementByClass('red');
+    var green = goog.dom.getElementByClass('green');
+    var blue = goog.dom.getElementByClass('blue');
+
+
+    var validRegExp = /^[^@]+@[^@]+.[a-z]{2,}$/i;
+
+    if (email.value.search(validRegExp) == -1) 
+    {
+        showDialog(" A valid e-mail address is required. " );
+        return false;
+    }
+
+    var redinput = goog.dom.getElementByClass('redinput');
+    if(red.className.search('tv-toggle-button-on') > 0 ) {
+       redinput.value = "YES";
+    }
+    else {
+       redinput.value = "NO";
+    }
+    var greeninput = goog.dom.getElementByClass('greeninput');
+    if(green.className.search('tv-toggle-button-on') > 0 ) {
+       greeninput.value = "YES";
+    }
+    else {
+       greeninput.value = "NO";
+    }
+    var blueinput = goog.dom.getElementByClass('blueinput');
+    if(blue.className.search('tv-toggle-button-on') > 0 ) {
+       blueinput.value = "YES";
+    }
+    else {
+       blueinput.value = "NO";
+    }
+    var signup = goog.dom.getElementByClass('form-sign-up');
+    signup.submit();
+   }
+  });
+});
+
+// Execute the decorator
+try {
+  tv.ui.decorate(goog.dom.getElement('main'), decHandler.getHandler());
+} catch (e) {
+  alert('hh' + e.message);
+}
+
+// Set focus on initial element
+var focusElement = goog.dom.getElementByClass('first-focus');
+var focusComponent = tv.ui.getComponentByElement(focusElement);
+focusComponent.tryFocus();
+
+
+
+</script>
+
+
+</html>
