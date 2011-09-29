@@ -1,0 +1,117 @@
+/**
+ * Default theme to replicate look/feel of Google TV Spotlight chrome to use
+ * as the base template for presenting 16:9 demos
+ */
+
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans+TV:regular,bold&subset=latin);
+
+body {
+  background-color: #000;
+  color: #f0f0f0;
+  font-family: 'Droid Sans TV', arial, serif;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+ul,
+li,
+p {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style-type: none;
+}
+
+
+/* Styles for top header and title area */
+#header {
+  background-color: #444;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#4D4D4D), to(#3A3A3A));
+  height: 62px;
+}
+#header img {
+  float: left;
+  padding-top: 8px;
+}
+#header h2 {
+  color: #fff;
+  float: left;
+  font-size: 24px;
+  font-weight: normal;
+  margin: 19px 0 0 18px;
+  text-shadow: #222 0px 1px 3px;
+}
+
+
+/*** Styles for the color strip ***/
+#colorstrip {
+  clear: both;
+  height: 5px;
+}
+#colorstrip li {
+  float: left;
+  height: 5px;
+  width: 25%;
+}
+#colorstrip .col1 {
+  background: #E3182D;
+}
+#colorstrip .col2 {
+  background: #0087F7;
+}
+#colorstrip .col3 {
+  background: #00BD27;
+}
+#colorstrip .col4 {
+  background: #FFDF00;
+}
+
+
+/* Keypress dialog styles */
+#keypress-dialog {
+  background-color: #ffe393;
+  color: #000;
+  font-size: 40px;
+  font-weight: bold;
+  left: 750px;
+  opacity: 0;
+  padding: 2px 0;
+  position: absolute;
+  text-align: center;
+  text-shadow: #666 2px 2px 6px;
+  top: 5px;
+  width: 300px;
+  -webkit-border-radius: 10px 15px;
+}
+#keypress-dialog.show {
+  opacity: 1;
+}
+#keypress-dialog.animate {
+  -webkit-transition: opacity 2000ms ease;
+}
+
+
+/*** Styles for main content section ***/
+#main {
+  border: 0px solid #eee;
+  height: 470px;
+  padding: 15px 15px 40px;
+  white-space: nowrap;
+}
+#main h3 {
+  color: #e65;
+  font-size: 28px;
+}
+
+.center {
+  margin: 0 auto;
+  overflow: hidden;
+  width: 1050px;
+}
