@@ -45,7 +45,6 @@ foreach( $results as $r ) {
       "subtitle" => $r->subtitle,
       "description" =>  $r->description);
     array_push($videos, $i);
-//    echo "ID: $catid: " . $r->id . " : " . $r->category_id . ": " . $r->title . " : " . $r->subtitle . " : " . $r->thumbnail_url . " : " . $r->video_url . "<br>";
 }
 
         $category = array("name" => $r->name, "videos" => $videos);
